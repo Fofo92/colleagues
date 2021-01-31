@@ -1,0 +1,12 @@
+<h1>Mes collègues</h1>
+
+<% @users.each do |user| %>
+  <div class="card-user">
+    <img src="https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/skateboard.jpg" />
+    <div class="card-user-infos">
+      <h2><%= link_to user.nickname, user_path(user) %></h2>
+      <p><strong><%= user.first_name %> <%= user.last_name %></strong></p>
+    </div>
+  </div>
+<% end %>
+
