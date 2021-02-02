@@ -1,0 +1,12 @@
+<h1>Mes collègues</h1>
+
+<% @users.each do |user| %>
+  <div class="card-user">
+    <%= cl_image_tag user.photo.key %>
+    <div class="card-user-infos">
+      <h2><%= link_to user.nickname, user_path(user) %></h2>
+      <p><strong><%= user.first_name %> <%= user.last_name %></strong></p>
+    </div>
+  </div>
+<% end %>
+

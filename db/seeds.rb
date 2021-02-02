@@ -5,34 +5,37 @@
 #
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
+# require "open-uri"
+# puts ''
+# puts 'Resetting users table'
+# User.destroy_all
+# puts ''
+# puts 'Start seeding users'
 
-puts "Deleting old Seed..."
+# file = URI.open("https://res.cloudinary.com/fofo921/image/upload/v1612272291/jh1uypwwyr8u8dkj2xft6447yjpy.jpg")
+# user = User.create!(first_name: 'Pascal', last_name: 'Fodiman', email: "pascal.fodiman@world_company.com", password: "123456")
+# user.photo.attach(io: file, filename: 'Fodiman.jpg', content_type: 'image/jpg')
 
-Event.destroy_all
+# User.create!(first_name: 'Sébastien', last_name: 'Scirpo', email: "sebastien.scirpo@world_company.com", password: "123456")
+# User.create!(first_name: 'Antoine', last_name: 'Ung Bao', email: "antoine.ung_bao@world_company.com", password: "123456")
+# User.create!(first_name: 'Raphaël', last_name: 'Mosca', email: "raphael.mosca@world_company.com", password: "123456")
+# User.create!(first_name: 'Charlie', last_name: 'Bertrand', email: "charlie.bertrand@world_company.com", password: "123456")
+# User.create!(first_name: 'Olivia', last_name: 'Bihl', email: "olivia.bihl@world_company.com", password: "123456")
+# User.create!(first_name: 'Coline', last_name: 'Juillerat', email: "coline.juillerat@world_company.com", password: "123456")
+# User.create!(first_name: 'Richard', last_name: 'Bates', email: "richard.bates@world_company.com", password: "123456")
+# User.create!(first_name: 'Rindra', last_name: 'Randrianasolo', email: "rindra.randrianasolo@world_company.com", password: "123456")
+# User.create!(first_name: 'Cheikhou', last_name: 'Diakhaby', email: "cheikhou.diakhaby@world_company.com", password: "123456")
+# User.create!(first_name: 'Myriam', last_name: 'Faucher-Pelletier', email: "myriam.faucher-pelletier@world_company.com", password: "123456")
+# User.create!(first_name: 'Félix', last_name: 'Deperthuis', email: "felix.deperthuis@world_company.com", password: "123456")
+# User.create!(first_name: 'Amélien', last_name: 'Delahaie', email: "amelien.delahaye@world_company.com", password: "123456")
+# User.create!(first_name: 'Anna', last_name: 'Naydenova', email: "#anna.naydenova@world_company.com", password: "123456")
+# User.create!(first_name: 'Audrey', last_name: 'De Marco', email: "audrey.de_marco@world_company.com", password: "123456")
+# User.create!(first_name: 'Alexis', last_name: 'Zaffalon', email: "alexis.zaffalon@world_company.com", password: "123456")
+# User.create!(first_name: 'Simon', last_name: 'Dautun', email: "simon.dautun@world_company.com", password: "123456")
 
-puts "Creating new events..."
-
-# .each not working
-
-# Event.new(name: "Disneyland", description: "Parc à thème familial", location: "Paris")
-# Event.new(name: "Futuroscope", description: "Parc à thème technologie", location: "Poitiers")
-# Event.new(name: "Cinéma CGR", description: "Groupe de salles de cinéma", location: "Sarcelles")
-# Event.new(name: "Chamonix", description: "Station de ski", location: "Chamonix")
-# Event.new(name: "Beatles", description: "Concert d'un grand groupe à Paris", location: "Bercy")
-
-# Event.each do |e|
-#   e.create!
-#   puts "#{e.name} created!"
+# User.all.each do |user|
+#   puts "User #{user.last_name} created successfully"
 # end
 
-d = Event.create!(name: "Disneyland", description: "Parc à thème familial", location: "Paris")
-f = Event.create!(name: "Futuroscope", description: "Parc à thème technologie", location: "Poitiers")
-cgr = Event.create!(name: "Cinéma CGR", description: "Groupe de salles de cinéma", location: "Sarcelles")
-chx = Event.create!(name: "Chamonix", description: "Station de ski", location: "Chamonix")
-b = Event.create!(name: "Beatles", description: "Concert d'un grand groupe à Paris", location: "Bercy")
-
-[d, f, cgr, chx, b].each do |type|
-  puts "#{type.name} created!"
-end
-
-puts "All events created!"
+# puts "Seeding users completed - #{User.count} users created"
+# puts ''

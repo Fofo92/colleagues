@@ -1,0 +1,96 @@
+/*Purple*/
+
+.btn-ghost-primary {
+  color: #221F53;
+  border: 2px solid #6C63FF;
+  padding: 6px 16px;
+  border-radius: 8px;
+  font-weight: medium;
+  opacity: 0.6;
+  transition: opacity 0.3s ease;
+}
+
+.btn-ghost-primary:hover {
+  opacity: 1;
+}
+
+.btn-flat-primary {
+  color: white;
+  font-weight: normal;
+  padding: 6px 16px;
+  border-radius: 8px;
+  background: #6C63FF;
+  transition: background 0.3s ease;
+  border: 2px solid #6C63FF;
+}
+
+.btn-flat-primary:hover {
+  background: white;
+  color: #221F53;
+  border: 2px solid #6C63FF;
+}
+
+.btn-gradient-primary {
+  color: white;
+  padding: 6px 16px;
+  border-radius: 8px;
+  font-weight: bold;
+  background: linear-gradient(#6C63FF, #221F53);
+  transition: background 0.3s ease;
+  border: 2px solid #6C63FF;
+}
+
+.btn-gradient-primary:hover {
+  background: linear-gradient(#221F53, #6C63FF);
+  color: white;
+}
+
+/*Blue*/
+
+
+.btn-ghost-secondary {
+  color: #C3EBEF;
+  border: 2px solid #C3EBEF;
+  padding: 6px 16px;
+  border-radius: 8px;
+  font-weight: medium;
+  opacity: 0.6;
+  transition: opacity 0.3s ease;
+}
+
+.btn-ghost-secondary:hover {
+  opacity: 1;
+  color: #221F53;
+  background: #C3EBEF;
+}
+
+.btn-flat-secondary {
+  color: #221F53;
+  font-weight: normal;
+  padding: 6px 16px;
+  border-radius: 8px;
+  background: #C3EBEF;
+  transition: background 0.3s ease;
+  border: 2px solid #C3EBEF;
+}
+
+.btn-flat-secondary:hover {
+  background: #c3ebefce;
+  color: #221F53;
+  border: 2px solid #C3EBEF;
+}
+
+.btn-gradient-secondary {
+  color: white;
+  padding: 6px 16px;
+  border-radius: 8px;
+  font-weight: bold;
+  background: linear-gradient(#C3EBEF, #6C63FF);
+  transition: background 0.3s ease;
+  border: 2px solid #C3EBEF;
+}
+
+.btn-gradient-secondary:hover {
+  background: linear-gradient(#6C63FF, #C3EBEF);
+  color: white;
+}
