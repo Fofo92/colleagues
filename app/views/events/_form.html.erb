@@ -1,0 +1,10 @@
+<%= simple_form_for @event do |f| %>
+<%= f.input :name, label: "Nom de l'évènement", placeholder: "Sortie à Paris" %>
+<%= f.input :description, as: :text, label: "Description", placeholder: "Quoi de mieux pour relâcher la pression que de prendre 1 verre ou 2 entre collègues ;)" %>
+<%= f.input :location, label: "Lieu", placeholder: "5 Rue de la Huchette, 75005 Paris" %>
+<%= f.input :starts_at, label: "Début" %>
+<%= f.input :ends_at, label: "Fin" %>
+<%= f.input :price, label: "Prix", placeholder: "10€" %>
+<%= f.input :photo, as: :file %>
+<%= f.button :submit, class: 'btn-flat-primary' %>
+<% end %>
