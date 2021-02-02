@@ -3,34 +3,33 @@ class EventPolicy < ApplicationPolicy
     def resolve
       scope.all
     end
+  end
 
-    def index?
-      true
-    end
+  def index?
+    true
+  end
 
-    def new?
-      create?
-    end
+  def new?
+    create?
+  end
 
-    def show?
-      true
-    end
+  def show?
+    true
+  end
 
-    def create?
-      true
-    end
+  def create?
+    true
+  end
 
-    def update?
-      record.event = event
-    end
+  def update?
+    record.user = user
+  end
 
-    def edit?
-      update?
-    end
+  def edit?
+    update?
+  end
 
-    def destroy?
-      record.event == event
-    end
-
+  def destroy?
+    record.user == user
   end
 end

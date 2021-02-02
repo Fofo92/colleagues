@@ -1,5 +1,5 @@
 class EventsController < ApplicationController
-  before_action :set_event, only: [:show, :new, :create]
+  before_action :set_event, only: [:show, :create]
 
   def index
     @events = Event.all
@@ -23,7 +23,7 @@ class EventsController < ApplicationController
       @event.save
       redirect_to events_path(@event)
     else
-      render new
+      render :new
     end
   end
 
