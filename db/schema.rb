@@ -51,8 +51,8 @@ ActiveRecord::Schema.define(version: 2021_02_02_105845) do
     t.text "description"
     t.datetime "starts_at"
     t.datetime "ends_at"
-    t.bigint "user_id", null: false
-    t.bigint "hobby_id", null: false
+    t.bigint "user_id", null: true
+    t.bigint "hobby_id", null: true
     t.string "location"
     t.float "latitude"
     t.float "longitude"

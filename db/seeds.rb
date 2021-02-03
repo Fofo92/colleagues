@@ -7,10 +7,12 @@
 #   Character.create(name: 'Luke', movie: movies.first)
 # require "open-uri"
 # puts ''
-# puts 'Resetting users table'
-# User.destroy_all
+puts 'Resetting users table'
+Event.destroy_all
 # puts ''
-# puts 'Start seeding users'
+puts 'Start seeding users'
+
+disneyland = Event.create(name: "DisneylandParis")
 
 # file = URI.open("https://res.cloudinary.com/fofo921/image/upload/v1612272291/jh1uypwwyr8u8dkj2xft6447yjpy.jpg")
 # user = User.create!(first_name: 'Pascal', last_name: 'Fodiman', email: "pascal.fodiman@world_company.com", password: "123456")
@@ -32,7 +34,8 @@
 # User.create!(first_name: 'Audrey', last_name: 'De Marco', email: "audrey.de_marco@world_company.com", password: "123456")
 # User.create!(first_name: 'Alexis', last_name: 'Zaffalon', email: "alexis.zaffalon@world_company.com", password: "123456")
 # User.create!(first_name: 'Simon', last_name: 'Dautun', email: "simon.dautun@world_company.com", password: "123456")
-
+puts "#{disneyland.name} created!"
+puts "End"
 # User.all.each do |user|
 #   puts "User #{user.last_name} created successfully"
 # end

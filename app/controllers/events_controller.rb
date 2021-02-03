@@ -1,5 +1,5 @@
 class EventsController < ApplicationController
-  before_action :set_event, only: [:show, :create]
+  before_action :set_event, only: [:show, :edit]
 
   def index
     @events = Event.all
@@ -16,12 +16,15 @@ class EventsController < ApplicationController
   end
 
   def create
-    @event = Event.create(event_params)
+    @event = Event.new(event_params)
+
     authorize @event
+
     @event.user = current_user
+
     if @event.valid?
       @event.save
-      redirect_to events_path
+      redirect_to user_events_path
     else
       render :new
     end
@@ -52,6 +55,6 @@ class EventsController < ApplicationController
   end
 
   def event_params
-    params.require(:event).permit(:name, :description, :location)
+    params.require(:event).permit(:name, :description, :location, :starts_at, :ends_at, :price, :photo)
   end
 end
