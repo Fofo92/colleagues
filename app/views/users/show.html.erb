@@ -1,6 +1,4 @@
 <h1>User <%= @user.nickname %></h1>
 <h2>Hobbies</h2>
-<%= @user.hobby_list.each do |hobby|%>
-  <%= hobby %>
-<% end %>
+<%= @user.hobby_list %>
 <h2>Events</h2>
