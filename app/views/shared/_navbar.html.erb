@@ -27,12 +27,18 @@
             <%= link_to "Log out", destroy_user_session_path, method: :delete, class: "dropdown-item" %>
           </div>
         </li>
+
+
       <% else %>
+
+      
         <li class="nav-item">
-          <%= link_to "Write a story", "#", class: "btn btn-ghost-secondary" %>
-          <%= link_to "Book now", "#", class: "btn btn-flat-secondary" %>
+          <%= link_to "Se connecter", new_user_session_path, class: "btn btn-ghost-primary btn-ghost-primary-light" %>
+          <%= link_to "Créer Un Compte", new_user_registration_path, class: "btn btn-flat-primary" %>
         </li>
       <% end %>
+
     </ul>
+
   </div>
 </div>
