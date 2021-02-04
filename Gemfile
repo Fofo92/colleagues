@@ -63,3 +63,4 @@ gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 
 # gems added after initialisation
 gem 'pundit'
+gem 'cloudinary'

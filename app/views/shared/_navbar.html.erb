@@ -18,19 +18,27 @@
           <%= link_to "Messages", "#", class: "nav-link" %>
         </li>
         <li class="nav-item dropdown">
-          <%= image_tag "https://kitt.lewagon.com/placeholder/users/ssaunier", class: "avatar dropdown-toggle", id: "navbarDropdown", data: { toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>
+          <% if (user_signed_in? && current_user.photo.attached?) %>
+            <%= cl_image_tag current_user.photo.key, class: "avatar dropdown-toggle", id: "navbarDropdown", data: { toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>
+          <% end %>
           <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
             <%= link_to "Action", "#", class: "dropdown-item" %>
             <%= link_to "Another action", "#", class: "dropdown-item" %>
             <%= link_to "Log out", destroy_user_session_path, method: :delete, class: "dropdown-item" %>
           </div>
         </li>
+
+
       <% else %>
+
+      
         <li class="nav-item">
-          <%= link_to "Book now", "#", class: "btn btn-ghost-primary btn-ghost-primary-light" %>
-          <%= link_to "Write a story", "#", class: "btn btn-flat-primary" %>
+          <%= link_to "Se connecter", new_user_session_path, class: "btn btn-ghost-primary btn-ghost-primary-light" %>
+          <%= link_to "Créer Un Compte", new_user_registration_path, class: "btn btn-flat-primary" %>
         </li>
       <% end %>
+
     </ul>
+
   </div>
 </div>
