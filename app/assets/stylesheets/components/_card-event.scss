@@ -12,7 +12,7 @@
   display: flex;
   justify-content: center;
   width: 100%;
-  height: 80%;
+  height: 75%;
   background-size: cover;
   background-position: center;
   text-shadow: 1px 1px 3px rgba(0,0,0,0.2);
@@ -28,16 +28,17 @@
   position: relative;
   display: flex;
   background-color: white;
-  height: 20%;
+  height: 25%;
   border-radius: 0 0 6px 6px;
 }
 
 .card-info p {
-    top: 30px;
+    top: 35px;
     position: absolute;
     left: 95px;
     font-size: 12px;
     margin: 0;
     padding: 0;
     font-family: 'Roboto', sans-serif;
+    text-decoration: underline;
 }
