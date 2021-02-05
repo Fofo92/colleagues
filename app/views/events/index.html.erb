@@ -3,14 +3,19 @@
 <% @events.each do |event| %>
     <%= event.name %>
 <% end %>
+<div class="container">
+  <div class="card-event">
+    <div class="card-image" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/breakfast.jpg)">
+      Breakfast
+    </div>
 
-<div class="card-event">
-  <div class="card-image" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/breakfast.jpg)">
-    Breakfast
-  </div>
 
-
-  <div class="card-info">
-    <a href="#" class="tag-card">Pétanque</a>
+    <div class="card-info">
+      <a href="#" class="tag-card">Pétanque</a>
+      <img class="avatar-event-first" alt="avatar-bordered" src="https://kitt.lewagon.com/placeholder/users/sarahlafer" />
+      <img class="avatar-event-second" alt="avatar-bordered" src="https://kitt.lewagon.com/placeholder/users/sarahlafer" />
+      <img class="avatar-event-third" alt="avatar-bordered" src="https://kitt.lewagon.com/placeholder/users/sarahlafer" />
+      <p>+300 personnes y participent</p>
+    </div>
   </div>
 </div>
