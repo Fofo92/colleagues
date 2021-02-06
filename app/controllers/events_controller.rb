@@ -1,5 +1,5 @@
 class EventsController < ApplicationController
-  before_action :set_event, only: [:show, :edit, :destroy]
+  before_action :set_event, only: [:show, :edit, :update, :destroy]
 
   def index
     @events = Event.all
@@ -32,23 +32,20 @@ class EventsController < ApplicationController
   end
 
   def edit
-    @event.user = current_user
-
+    @user = current_user
     authorize @event
   end
 
   def update
     authorize @event
-    @user = current_user
-    @event.update(event_params)
+    @event.user = current_user
 
     if @event.valid?
-      @event.update(event)
-      redirect_to event_path(@event)
+      @event.update(event_params)
+      redirect_to user_path(current_user.id)
     else
       render :edit
     end
-    redirect_to event_path(@event)
   end
 
   def destroy
