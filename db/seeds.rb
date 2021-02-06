@@ -8,12 +8,8 @@
 # require "open-uri"
 # puts ''
 puts 'Resetting users table'
-Event.destroy_all
-# puts ''
+puts ''
 puts 'Start seeding users'
-
-disneyland = Event.create(name: "DisneylandParis")
-
 # file = URI.open("https://res.cloudinary.com/fofo921/image/upload/v1612272291/jh1uypwwyr8u8dkj2xft6447yjpy.jpg")
 # user = User.create!(first_name: 'Pascal', last_name: 'Fodiman', email: "pascal.fodiman@world_company.com", password: "123456")
 # user.photo.attach(io: file, filename: 'Fodiman.jpg', content_type: 'image/jpg')
@@ -34,11 +30,34 @@ disneyland = Event.create(name: "DisneylandParis")
 # User.create!(first_name: 'Audrey', last_name: 'De Marco', email: "audrey.de_marco@world_company.com", password: "123456")
 # User.create!(first_name: 'Alexis', last_name: 'Zaffalon', email: "alexis.zaffalon@world_company.com", password: "123456")
 # User.create!(first_name: 'Simon', last_name: 'Dautun', email: "simon.dautun@world_company.com", password: "123456")
-puts "#{disneyland.name} created!"
-puts "End"
 # User.all.each do |user|
 #   puts "User #{user.last_name} created successfully"
 # end
 
 # puts "Seeding users completed - #{User.count} users created"
-# puts ''
+puts ''
+
+puts 'Resetting events table'
+Event.destroy_all
+puts 'Start seeding events'
+Event.create(
+  name: "Croisière au Bosphore",
+  description: "Profitez de nos prix avantageux en basse saison !",
+  starts_at: "28/02/2021",
+  ends_at: "07/03/2021",
+  user_id: 1,
+  location: "Istambul",
+  price: 400)
+Event.create(
+  name: "Concert à la Philharmonie de Paris",
+  description: "K. Zimmermann joue les concertos n° 3 et 4 pour piano et orchstre de L. van Beethoven. Rarissime",
+  starts_at: "20/03/2021",
+  ends_at: "20/03/2021",
+  user_id: 1,
+  location: "221 Avenue Jean Jaurès, 75019 Paris",
+  price: 150)
+
+
+puts "Events created"
+puts ''
+puts "Seeding events ended"
