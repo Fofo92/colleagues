@@ -19,7 +19,7 @@ class EventsController < ApplicationController
     @event = Event.new(event_params)
 
     authorize @event
-
+    @user = User.find(params[:user_id])
     @event.user = current_user
 
     if @event.valid?

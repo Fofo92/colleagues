@@ -1,4 +1,12 @@
 <h1>User <%= @user.nickname %></h1>
 <h2>Hobbies</h2>
 <%= @user.hobby_list %>
+
 <h2>Events</h2>
+<ul class="list-group">
+  <% @user.events.each do |event| %>
+    <li class="list-group-item">
+      <%= event.name %>
+   </li>
+  <% end %>
+</ul>
