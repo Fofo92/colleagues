@@ -11,7 +11,6 @@ class EventsController < ApplicationController
   end
 
   def new
-    @user = User.find(params[:user_id])
     @event = Event.new
     authorize @event
   end
@@ -21,7 +20,6 @@ class EventsController < ApplicationController
 
     authorize @event
     @event.user = current_user
-    @user = User.find(params[:user_id])
 
     if @event.valid?
       @event.save
