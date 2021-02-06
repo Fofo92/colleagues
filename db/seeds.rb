@@ -47,7 +47,8 @@ Event.create(
   ends_at: "07/03/2021",
   user_id: 1,
   location: "Istambul",
-  price: 400)
+  price: 400,
+  max_booking: 50)
 Event.create(
   name: "Concert à la Philharmonie de Paris",
   description: "K. Zimmermann joue les concertos n° 3 et 4 pour piano et orchstre de L. van Beethoven. Rarissime",
@@ -55,7 +56,8 @@ Event.create(
   ends_at: "20/03/2021",
   user_id: 1,
   location: "221 Avenue Jean Jaurès, 75019 Paris",
-  price: 150)
+  price: 150,
+  max_booking: 150)
 
 
 puts "Events created"
