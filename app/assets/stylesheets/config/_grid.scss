@@ -1,0 +1,26 @@
+.events-wrapper {
+  display: flex;
+  justify-content: center;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: space-between;
+}
+
+
+.events-wrapper { visibility: hidden; }
+/* Prevents :hover from triggering in the gaps between items */
+
+.events-wrapper > * { visibility: visible; }
+/* Brings the child items back in, even though the parent is `hidden` */
+
+.events-wrapper > * { transition: opacity 150ms linear 100ms, transform 150ms ease-in-out 100ms; }
+/* Makes the fades smooth with a slight delay to prevent jumps as the mouse moves between items */
+
+.events-wrapper:hover > * { opacity: 0.4; transform: scale(0.9); }
+/* Fade out all items when the parent is hovered */
+
+.events-wrapper > *:hover { opacity: 1; transform: scale(1); transition-delay: 0ms, 0ms; }
+/* Fade in the currently hovered item */
+
+
+    
