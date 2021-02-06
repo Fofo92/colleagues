@@ -5,6 +5,7 @@
 <%= f.input :starts_at, as: :string, label: "Début", input_html: { class: "datepicker" } %>
 <%= f.input :ends_at, as: :string, label: "Fin", input_html: { class: "datepicker" } %>
 <%= f.input :price, label: "Prix", placeholder: "10€" %>
+<%= f.input :max_booking, label: "Nombre de participants maximum" %>
 <%= f.input :photo, as: :file %>
 <%= f.button :submit, class: 'btn-flat-primary' %>
 <% end %>
