@@ -6,8 +6,9 @@
     <p>Fin : <%= @event.ends_at %></p>
     <p>Lieu : <%= @event.location %></p>
     <p>Participants max : <%= @event.max_booking %></p>
+    <p>Nombre d'inscrits : <%= @event.bookings.count %></p>
     <p>Description : <%= @event.description %></p>
-    <%= link_to "S'inscrire" %>
+    <%= link_to "S'inscrire", new_event_booking_path(@event) %>
   </div>
 </div>
 
