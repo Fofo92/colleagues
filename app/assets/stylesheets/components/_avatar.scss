@@ -19,7 +19,7 @@
   border: white 1px solid;
 }
 
-.avatar-event-first {
+.avatar-event {
   width: 40px;
   border-radius: 50%;
   box-shadow: 0 1px 2px rgba(0,0,0,0.2);
@@ -29,28 +29,4 @@
   left: 10px;
   top: 20px;
   z-index: 6;
-}
-
-.avatar-event-second {
-  width: 40px;
-  border-radius: 50%;
-  box-shadow: 0 1px 2px rgba(0,0,0,0.2);
-  border: #6C63FF 2px solid;
-  height: 40px;
-  position: absolute;
-  left: 30px;
-  top: 20px;
-  z-index: 5;
-}
-
-.avatar-event-third {
-  width: 40px;
-  border-radius: 50%;
-  box-shadow: 0 1px 2px rgba(0,0,0,0.2);
-  border: #6C63FF 2px solid;
-  height: 40px;
-  position: absolute;
-  left: 50px;
-  top: 20px;
-  z-index: 4;
 }

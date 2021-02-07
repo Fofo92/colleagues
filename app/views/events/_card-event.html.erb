@@ -11,11 +11,12 @@
 
     <div class="card-info">
       <a href="#" class="tag-card">Pétanque</a>
-      <% event.bookings.first(3).each do |booked_user| %>
-        <%= booked_user.user.nickname %>
+      <% avatar_shift = 10 %>
+      <% event.bookings.first(5).each do |booked_user| %>
         <% if booked_user.user.photo.attached? %>
-          <%= image_tag booked_user.user.photo, class: "avatar-event-first", alt: "avatar-bordered" %>
+          <%= image_tag booked_user.user.photo, class: "avatar-event", style: "left: #{avatar_shift}px;", alt: "avatar-bordered" %>
         <% end %>
+        <%= avatar_shift += 10  %>
       <% end %>
       <p><%= pluralize(event.bookings.count, "participant", plural: "participants", locale: :fr) %> </p>
     </div>
