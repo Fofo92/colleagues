@@ -1,20 +1,26 @@
 class BookingsController < ApplicationController
 
-  def new
-    @event = Event.find(params[:event_id])
-    @booking = Booking.new
-    authorize @booking
-    @user = current_user
-  end
+  # def new
+  #   @event = Event.find(params[:event_id])
+  #   @booking = Booking.new
+  #   authorize @booking
+  #   @user = current_user
+  # end
 
   def create
-    @booking = Booking.new(booking_params)
+    @booking = Booking.new
+    # user = current_user
+    # @booking = Booking.new(booking_params)
     authorize @booking
     @event = Event.find(params[:event_id])
     @booking.event = @event
-    @event.user = current_user
-    @booking.save
-    redirect_to event_path(@event)
+    @booking.user = current_user
+    # raise
+    if @booking.save
+      redirect_to event_path(@event)
+    else
+      render :new
+    end
   end
 
   private
