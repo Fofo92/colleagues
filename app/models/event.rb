@@ -7,10 +7,12 @@ class Event < ApplicationRecord
   validate :ends_at_after_starts_at
   validates :starts_at, :ends_at, presence: true,
             inclusion: { in: (Date.today..Date.today + 1.years) }
+  geocoded_by :location
+  after_validation :geocode, if: :will_save_change_to_location?
 
   private
 
-  def ends_at_afters_start_at
+  def ends_at_after_starts_at
     return if ends_at.blank? || starts_at.blank?
 
     if ends_at < starts_at
