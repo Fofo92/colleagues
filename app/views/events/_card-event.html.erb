@@ -11,10 +11,14 @@
 
     <div class="card-info">
       <a href="#" class="tag-card">Pétanque</a>
-      <img class="avatar-event-first" alt="avatar-bordered" src="https://kitt.lewagon.com/placeholder/users/sarahlafer" />
-      <img class="avatar-event-second" alt="avatar-bordered" src="https://kitt.lewagon.com/placeholder/users/sarahlafer" />
-      <img class="avatar-event-third" alt="avatar-bordered" src="https://kitt.lewagon.com/placeholder/users/sarahlafer" />
-      <p>+300 personnes y participent</p>
+      <% avatar_shift = 10 %>
+      <% event.bookings.first(5).each do |booked_user| %>
+        <% if booked_user.user.photo.attached? %>
+          <%= image_tag booked_user.user.photo, class: "avatar-event", style: "left: #{avatar_shift}px;", alt: "avatar-bordered" %>
+        <% end %>
+        <%= avatar_shift += 10  %>
+      <% end %>
+      <p><%= pluralize(event.bookings.count, "participant", plural: "participants", locale: :fr) %> </p>
     </div>
 
   </div>
