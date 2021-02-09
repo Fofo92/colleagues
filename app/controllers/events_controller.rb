@@ -4,6 +4,12 @@ class EventsController < ApplicationController
   def index
     @events = Event.all
     authorize @events
+    @markers = @events.geocoded.map do |event|
+      {
+        lat: event.latitude,
+        lng: event.longitude
+      }
+    end
   end
 
   def show
@@ -17,7 +23,6 @@ class EventsController < ApplicationController
 
   def create
     @event = Event.new(event_params)
-
     authorize @event
     @event.user = current_user
 
@@ -30,7 +35,6 @@ class EventsController < ApplicationController
   end
 
   def edit
-    @user = current_user
     authorize @event
   end
 
@@ -60,6 +64,7 @@ class EventsController < ApplicationController
   end
 
   def event_params
-    params.require(:event).permit(:name, :description, :location, :starts_at, :ends_at, :price, :photo, :max_booking)
+    params.require(:event).permit(:name, :description, :location, :longitude,
+      :latitude, :starts_at, :ends_at, :price, :photo, :max_booking)
   end
 end
