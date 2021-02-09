@@ -1,1 +1,49 @@
 // Specific CSS for your home-page
+.test-container {
+  background: green;
+  min-height: 100vh;
+  width: 100vw;
+  transition: transform 600ms ease;
+  transition-property: width;
+}
+
+.menu-container {
+  background: red;
+  min-height: 100vh;
+  width: 0;
+  // transform: translate3d(100%, 0, 0);
+  transition: transform 600ms ease;
+  transition-property: width;
+}
+
+.menu-open {
+  .test-container {
+    // transform: translate3d(-700px, 0, 0);
+  }
+
+  .menu-container {
+    // transform: translate3d(calc(100%-700px), 0, 0);
+  }
+}
+
+.mr150 {
+  width: 80%;
+}
+
+.slide-wrapper {
+  display: flex;
+}
+
+.width70 {
+  width: 70vw;
+}
+
+.width30 {
+  width: 30vw;
+}
+
+.d-none {
+  display: none;
+}
+
+
