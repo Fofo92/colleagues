@@ -14,6 +14,9 @@ class EventsController < ApplicationController
 
   def show
     authorize @event
+    @booking = Booking.find_by(user: current_user, event: @event, status: "Réservé")
+    @booking_count = Booking.where(event: @event, status: "Réservé").size
+    @markers = [{ lat: @event.latitude, lng: @event.longitude }]
   end
 
   def new

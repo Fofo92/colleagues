@@ -17,11 +17,16 @@ class BookingsController < ApplicationController
     @booking.user = current_user
     @booking.status = "Réservé"
     # raise
-    if @booking.save
-      redirect_to event_path(@event)
-    else
-      render :new
-    end
+    @booking.save
+    redirect_to event_path(@event)
+  end
+
+  def update
+    @booking = Booking.find(params[:id])
+    authorize @booking
+    @booking.status = "Cancelled"
+    @booking.save
+    redirect_to event_path(@booking.event)
   end
 
   private
