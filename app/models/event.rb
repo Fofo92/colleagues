@@ -5,8 +5,8 @@ class Event < ApplicationRecord
   has_many :bookings, dependent: :destroy
   validates :name, :price, :location, :max_booking, presence: true
   validate :ends_at_after_starts_at
-  validates :starts_at, :ends_at, presence: true,
-            inclusion: { in: (Date.today..Date.today + 1.years) }
+  validates :starts_at, :ends_at, presence: true #,
+  #          inclusion: { in: (Date.today..Date.today + 1.years) }
   geocoded_by :location
   after_validation :geocode, if: :will_save_change_to_location?
 

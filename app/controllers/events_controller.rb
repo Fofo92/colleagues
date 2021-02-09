@@ -23,7 +23,6 @@ class EventsController < ApplicationController
 
   def create
     @event = Event.new(event_params)
-
     authorize @event
     @event.user = current_user
 
@@ -36,7 +35,6 @@ class EventsController < ApplicationController
   end
 
   def edit
-    @user = current_user
     authorize @event
   end
 

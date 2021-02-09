@@ -15,6 +15,7 @@ class BookingsController < ApplicationController
     @event = Event.find(params[:event_id])
     @booking.event = @event
     @booking.user = current_user
+    @booking.status = "Réservé"
     # raise
     if @booking.save
       redirect_to event_path(@event)
