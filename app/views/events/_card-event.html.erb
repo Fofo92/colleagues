@@ -16,7 +16,7 @@
         <% if booked_user.user.photo.attached? %>
           <%= image_tag booked_user.user.photo, class: "avatar-event", style: "left: #{avatar_shift}px;", alt: "avatar-bordered" %>
         <% end %>
-        <%= avatar_shift += 10  %>
+        <% avatar_shift += 10  %>
       <% end %>
       <p><%= pluralize(event.bookings.count, "participant", plural: "participants", locale: :fr) %> </p>
     </div>
