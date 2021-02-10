@@ -1,3 +1,4 @@
+// Work
 const initMenu = () => {
   const menuEls = document.querySelectorAll('.navbar .slide-button');
   const bodyContainer = document.querySelector('.body-container');
@@ -17,6 +18,8 @@ const initMenu = () => {
     });
   });
 }
+
+//Try to make it work!
 
 // const initMenu = () => {
 //   const buttons = document.querySelectorAll('.navbar .nav-link');

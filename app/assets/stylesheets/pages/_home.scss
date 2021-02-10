@@ -23,24 +23,6 @@
   transition-property: width;
 }
 
-.menu-open {
-  .test-container {
-    // transform: translate3d(-700px, 0, 0);
-  }
-
-  .menu-container {
-    // transform: translate3d(calc(100%-700px), 0, 0);
-  }
-}
-
-.mr150 {
-  width: 80%;
-}
-
-.slide-wrapper {
-  display: flex;
-}
-
 body {
   display: flex;
 }
