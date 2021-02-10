@@ -1,9 +1,6 @@
 <% @events.each do |event| %>
-
   <div class="card-event">
-
     <%= link_to event_path(event) do %>
-
       <div class="card-image" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url('<%= cl_image_path event.photo.attached? ? event.photo.key : "https://res.cloudinary.com/drzg8kw0k/image/upload/v1611342995/4hux27613gnhmjimg612mls9chi0.jpg" %>')">
       <%= event.name %>
       </div>
@@ -18,8 +15,8 @@
         <% end %>
         <% avatar_shift += 10  %>
       <% end %>
-      <p><%= pluralize(event.bookings.count, "participant", plural: "participants", locale: :fr) %> </p>
+      <p><%= pluralize(event.bookings.where(status: "Réservé").count, "participant", plural: "participants", locale: :fr) %> </p>
     </div>
-
   </div>
 <% end %>
+

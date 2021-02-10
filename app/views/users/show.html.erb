@@ -4,7 +4,7 @@
 
 <h2>My organized events</h2>
 <%= render "events" %>
+<%= link_to 'Create an event', new_event_path, class: 'btn btn-flat-primary' %>
 <h2>My booked events</h2>
 <%= render "booked_events" %>
 
-<%= link_to 'Add an event', new_event_path, class: 'btn btn-flat-primary' %>

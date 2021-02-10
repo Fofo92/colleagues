@@ -4,6 +4,7 @@ Rails.application.routes.draw do
 
   resources :events, only: [:index, :new, :create, :show, :edit, :update, :destroy] do
     resources :bookings, only: [:index, :create]
+    resources :messages, only: [:index]
   end
   resources :bookings, only: :update
 
