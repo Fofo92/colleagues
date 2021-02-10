@@ -16,6 +16,8 @@ class EventsController < ApplicationController
     authorize @event
     @booking = Booking.find_by(user: current_user, event: @event, status: "Réservé")
     @booking_count = Booking.where(event: @event, status: "Réservé").size
+    @message = Message.new
+
     @markers = [{ lat: @event.latitude, lng: @event.longitude }]
   end
 
@@ -44,7 +46,6 @@ class EventsController < ApplicationController
   def update
     authorize @event
     @event.user = current_user
-
     if @event.valid?
       @event.update(event_params)
       redirect_to user_path(current_user.id)

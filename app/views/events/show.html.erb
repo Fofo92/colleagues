@@ -22,4 +22,20 @@
         data-markers="<%= @markers.to_json %>"
         data-mapbox-api-key="<%= ENV['MAPBOX_API_KEY'] %>">
       </div>
+      <h2>Chat room</h2>
+      <div id="messages" data-chatroom-id="<%= @event.id %>">
+        <% @event.messages.each do |message| %>
+          <div class="message-container" id="message-<%= message.id %>">
+            <i class="author">
+              <span><%= message.user.nickname %></span>
+              <small><%= message.created_at.strftime("%a %b %e at %l:%M%p") %></small>
+            </i>
+            <p><%= message.content %></p>
+          </div>
+        <% end %>
+      </div>
     </div>
+
+    <%= simple_form_for [ @event, @message ], remote: true do |f| %>
+      <%= f.input :content, label: false, placeholder: "Your message to #{event.name}" %>
+    <% end %>
