@@ -14,7 +14,7 @@
         <% else  %>
           <%= link_to "Book", event_bookings_path(@event), method: :post, class: 'btn btn-flat-primary' %>
         <% end %>
-          <%= link_to "Back to my events", user_path, class: 'btn btn-flat-primary' %>
+          <%= link_to "Back to my events", user_path(current_user), class: 'btn btn-flat-primary' %>
       </div>
       <div id="map"
         class="col-lg-6"
