@@ -7,6 +7,13 @@
   transition-property: width;
 }
 
+.body-container {
+  min-height: 100vh;
+  width: 100vw;
+  transition: transform 600ms ease;
+  transition-property: width;
+}
+
 .menu-container {
   background: red;
   min-height: 100vh;
@@ -31,6 +38,10 @@
 }
 
 .slide-wrapper {
+  display: flex;
+}
+
+body {
   display: flex;
 }
 

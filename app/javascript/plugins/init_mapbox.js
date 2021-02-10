@@ -32,4 +32,4 @@ const initMapbox = () => {
   }
 };
 
-export { initMapbox };
+// export { initMapbox };
