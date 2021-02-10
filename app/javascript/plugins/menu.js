@@ -19,7 +19,7 @@
 //   });
 // }
 
-//Try to make it work!
+//It work now!
 
 const initMenu = () => {
   const buttons = document.querySelectorAll('.navbar li');
