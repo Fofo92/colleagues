@@ -14,7 +14,7 @@
           <%= link_to '#',  class: "nav-link " do %>Liste des Evenements<% end %>
         </li>
 
-        <li class="slide-button"><a href="#">Bonjour</a></li>
+        <li><i class="fas fa-angle-double-left"></i></li>
 
         <% if current_user.photo.attached? %>
          <%= image_tag current_user.photo, class: "avatar dropdown-toggle", id: "navbarDropdown", data: { toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>

@@ -22,15 +22,12 @@
 //Try to make it work!
 
 const initMenu = () => {
-  const buttons = document.querySelectorAll('.navbar .slide-button');
-  const bodyContainer = document.querySelector('.body-container');
-  const menuContainer = document.querySelector('.menu-container');
-  const menuContent = menuContainer.querySelector('.menu-container-content');
+  const buttons = document.querySelectorAll('.navbar li');
+  const menuContent = document.querySelector('.test');
   buttons.forEach( el => {
     el.addEventListener('click', (event) => {
       event.preventDefault()
-      bodyContainer.classList.toggle('menu-open');
-      menuContainer.classList.toggle('menu-open');
+      menuContent.classList.toggle('menu-open')
     });
   });
 }
