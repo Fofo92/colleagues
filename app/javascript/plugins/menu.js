@@ -22,14 +22,21 @@
 //It work now!
 
 const initMenu = () => {
-  const buttons = document.querySelectorAll('.navbar li');
+  const buttonIn = document.querySelector('.navbar #toggle-in');
+  const buttonOut = document.querySelector('#toggle-out');
   const menuContent = document.querySelector('.test');
-  buttons.forEach( el => {
-    el.addEventListener('click', (event) => {
+  // buttons.forEach( el => {
+    buttonIn.addEventListener('click', (event) => {
       event.preventDefault()
       menuContent.classList.toggle('menu-open')
     });
-  });
+
+    buttonOut.addEventListener('click', (event) => {
+      event.preventDefault()
+      menuContent.classList.toggle('menu-open')
+    });
+  // });
 }
+
 
 export { initMenu };
