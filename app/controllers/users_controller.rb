@@ -8,6 +8,7 @@ class UsersController < ApplicationController
 
   def show
     authorize @user
+    @my_events = @user.bookings.where(status: "Réservé")
   end
 
   private
