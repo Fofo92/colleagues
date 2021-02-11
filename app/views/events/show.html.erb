@@ -10,7 +10,7 @@
       <p>Booked participants : <%= @booking_count %></p>
       <p>Description : <%= @event.description %></p>
       <% if @booking %>
-        <%= link_to "Cancel", booking_path(@booking), method: :patch, class: 'btn btn-flat-primary' %>index
+        <%= link_to "Cancel", booking_path(@booking), method: :patch, class: 'btn btn-flat-primary' %>
       <% else  %>
         <%= link_to "Book", event_bookings_path(@event), method: :post, class: 'btn btn-flat-primary' %>
       <% end %>
