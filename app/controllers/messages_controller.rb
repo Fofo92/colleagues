@@ -2,6 +2,7 @@ class MessagesController < ApplicationController
   def create
     @event = Event.find(params[:event_id])
     @message = Message.new(message_params)
+    authorize @message
     @message.event = @event
     @message.user = current_user
     if message.save

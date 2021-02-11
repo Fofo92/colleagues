@@ -4,19 +4,13 @@ class EventsController < ApplicationController
   def index
     @events = Event.all
     authorize @events
-    @markers = @events.geocoded.map do |event|
-      {
-        lat: event.latitude,
-        lng: event.longitude
-      }
-    end
   end
 
   def show
     authorize @event
     @booking = Booking.find_by(user: current_user, event: @event, status: "Réservé")
     @booking_count = Booking.where(event: @event, status: "Réservé").size
-    @message = Message.new
+    # @message = Message.new
 
     @markers = [{ lat: @event.latitude, lng: @event.longitude }]
   end
@@ -48,8 +42,7 @@ class EventsController < ApplicationController
     @event.user = current_user
     if @event.valid?
       @event.update(event_params)
-      redirect_to user_path(current_user.id)
-    else
+      redirect_to user_path(current_user.id), :flash => { :success => "You booked your event successfully" }
       render :edit
     end
   end
