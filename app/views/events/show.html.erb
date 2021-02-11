@@ -1,16 +1,16 @@
-<div class="container">
+<div class="content-space">
   <h1>Detailed information on <%= @event.name %></h1>
   <div class="row">
     <div class="col-lg-6">
       <p style="font-weight: bold; font-size: 20px" ><%= @event.name %></p>
-      <p>Starting : <%= @event.starts_at.strftime("%d/%m/%Y") %></p>
-      <p>Ending : <%= @event.ends_at.strftime("%d/%m/%Y") %></p>
-      <p>Location : <%= @event.location %></p>
-      <p>Max. participants : <%= @event.max_booking %></p>
-      <p>Booked participants : <%= @booking_count %></p>
-      <p>Description : <%= @event.description %></p>
+      <p><strong>Event starting at</strong>: <%= @event.starts_at.strftime("%d/%m/%Y") %></p>
+      <p><strong>Event ending at</strong>: <%= @event.ends_at.strftime("%d/%m/%Y") %></p>
+      <p><strong>Location</strong>: <%= @event.location %></p>
+      <p><srong>Max. participants</srong>: <%= @event.max_booking %></p>
+      <p><strong>Participants</strong>: <%= @booking_count %></p>
+      <p><strong>Description</strong>: <%= @event.description %></p>
       <% if @booking %>
-        <%= link_to "Cancel", booking_path(@booking), method: :patch, class: 'btn btn-flat-primary' %>index
+        <%= link_to "Cancel", booking_path(@booking), method: :patch, class: 'btn btn-flat-primary' %>
       <% else  %>
         <%= link_to "Book", event_bookings_path(@event), method: :post, class: 'btn btn-flat-primary' %>
       <% end %>
@@ -22,8 +22,9 @@
       data-markers="<%= @markers.to_json %>"
       data-mapbox-api-key="<%= ENV['MAPBOX_API_KEY'] %>">
     </div>
-    <h2>Chat room</h2>
-    <div id="messages" data-chatroom-id="<%= @event.id %>">
+  </div>
+  <h2>Chat room</h2>
+    <div id="messages" class="col-lg-12" data-chatroom-id="<%= @event.id %>">
       <% @event.messages.each do |message| %>
         <div class="message-container" id="message-<%= message.id %>">
           <i class="author">
@@ -38,6 +39,5 @@
         <%= f.button :submit, method: :post, class: 'btn btn-flat-primary' %>
       <% end %>
     </div>
-  </div>
 </div>
 
