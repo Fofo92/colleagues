@@ -5,17 +5,19 @@
       <%= my_event.event.name %>
       <p><%= my_event.event.description %></p>
     </div>
-    <ul class: "list-unstyled">
-      <li class="media">
-        <% if policy(my_event.event).show? %>
-          <%= link_to event_path(my_event.event) do %><i class="fas fa-eye m-0"></i><% end %>
-        <% end %>
-      </li>
-      <li class="media">
-        <% if policy(my_event.event).update? %>
-          <%= link_to booking_path(my_event), method: :patch do %><i class="fas fa-user-minus"></i><% end %>
-        <% end %>
-      </li>
-    </ul>
+    <div class="icon-zone">
+      <ul class: "list-unstyled">
+        <li class="media">
+          <% if policy(my_event.event).show? %>
+            <%= link_to event_path(my_event.event) do %><i class="fas fa-eye m-0"></i><% end %>
+          <% end %>
+        </li>
+        <li class="media">
+          <% if policy(my_event.event).update? %>
+            <%= link_to booking_path(my_event), method: :patch do %><i class="fas fa-user-minus"></i><% end %>
+          <% end %>
+        </li>
+      </ul>
+    </div>
   </div>
 <% end %>

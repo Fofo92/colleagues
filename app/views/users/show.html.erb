@@ -3,9 +3,14 @@
 <%= @user.hobby_list %>
 
 <h2>My organized events</h2>
-<%= render "events" %>
+<div class="event-container">
+  <%= render "events" %>
+</div>
 <%= link_to 'Create an event', new_event_path, class: 'btn btn-flat-primary' %>
+
 <h2>My booked events</h2>
-<%= render "booked_events" %>
+<div class="event-container">
+  <%= render "booked_events" %>
+</div>
 
 
