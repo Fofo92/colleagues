@@ -1,0 +1,21 @@
+<% @my_events.each do |my_event| %>
+  <div class="container card-product">
+    <%= cl_image_tag my_event.event.photo.attached? ? my_event.event.photo.key : "https://res.cloudinary.com/drzg8kw0k/image/upload/v1611342995/4hux27613gnhmjimg612mls9chi0.jpg" %>
+    <div class="card-product-infos">
+      <%= my_event.event.name %>
+      <p><%= my_event.event.description %></p>
+    </div>
+    <ul class: "list-unstyled">
+      <li class="media">
+        <% if policy(my_event.event).show? %>
+          <%= link_to event_path(my_event.event) do %><i class="fas fa-eye m-0"></i><% end %>
+        <% end %>
+      </li>
+      <li class="media">
+        <% if policy(my_event.event).update? %>
+          <%= link_to booking_path(my_event), method: :patch do %><i class="fas fa-user-minus"></i><% end %>
+        <% end %>
+      </li>
+    </ul>
+  </div>
+<% end %>
