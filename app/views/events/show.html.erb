@@ -10,18 +10,30 @@
         <p>Booked participants : <%= @booking_count %></p>
         <p>Description : <%= @event.description %></p>
         <% if @booking %>
-          <%= link_to "Cancel", booking_path(@booking), method: :patch, class: 'btn btn-flat-primary' %>
+          <%= link_to "Cancel", booking_path(@booking), method: :patch, class: 'btn btn-flat-primary' %>index
         <% else  %>
           <%= link_to "Book", event_bookings_path(@event), method: :post, class: 'btn btn-flat-primary' %>
         <% end %>
-          <%= link_to "Back to my events", user_path, class: 'btn btn-flat-primary' %>
+          <%= link_to "Back to my events", user_path(current_user), class: 'btn btn-flat-primary' %>
       </div>
       <div id="map"
         class="col-lg-6"
-        style="width: 100%; height: 600px;"
+        style="width: 100%; height: 400px;"
         data-markers="<%= @markers.to_json %>"
         data-mapbox-api-key="<%= ENV['MAPBOX_API_KEY'] %>">
       </div>
+      <h2>Chat room</h2>
+      <div id="messages" data-chatroom-id="<%= @event.id %>">
+        <% @event.messages.each do |message| %>
+          <div class="message-container" id="message-<%= message.id %>">
+            <i class="author">
+              <span><%= message.user.nickname %></span>
+              <small><%= message.created_at.strftime("%a %b %e at %l:%M%p") %></small>
+            </i>
+            <p><%= message.content %></p>
+          </div>
+        <% end %>
+      </div>
     </div>
-</div>
+
 
