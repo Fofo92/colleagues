@@ -10,7 +10,7 @@
       <p>Booked participants : <%= @booking_count %></p>
       <p>Description : <%= @event.description %></p>
       <% if @booking %>
-        <%= link_to "Cancel", booking_path(@booking), method: :patch, class: 'btn btn-flat-primary' %>index
+        <%= link_to "Cancel", booking_path(@booking), method: :patch, class: 'btn btn-flat-primary' %>
       <% else  %>
         <%= link_to "Book", event_bookings_path(@event), method: :post, class: 'btn btn-flat-primary' %>
       <% end %>
@@ -22,8 +22,9 @@
       data-markers="<%= @markers.to_json %>"
       data-mapbox-api-key="<%= ENV['MAPBOX_API_KEY'] %>">
     </div>
-    <h2>Chat room</h2>
-    <div id="messages" data-chatroom-id="<%= @event.id %>">
+  </div>
+  <h2>Chat room</h2>
+    <div id="messages" class="col-lg-12" data-chatroom-id="<%= @event.id %>">
       <% @event.messages.each do |message| %>
         <div class="message-container" id="message-<%= message.id %>">
           <i class="author">
@@ -38,6 +39,5 @@
         <%= f.button :submit, method: :post, class: 'btn btn-flat-primary' %>
       <% end %>
     </div>
-  </div>
 </div>
 
