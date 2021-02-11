@@ -5,10 +5,11 @@ class MessagesController < ApplicationController
     authorize @message
     @message.event = @event
     @message.user = current_user
-    if message.save
+    if @message.save
       redirect_to event_path(@event, anchor: "message-#{@message.id}")
     else
       render "events/show"
+    end
   end
 
   private
