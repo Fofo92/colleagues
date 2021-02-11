@@ -1,27 +1,26 @@
 class BookingsController < ApplicationController
 
-  # def new
-  #   @event = Event.find(params[:event_id])
-  #   @booking = Booking.new
-  #   authorize @booking
-  #   @user = current_user
-  # end
-
   def create
     @booking = Booking.new
-    # user = current_user
-    # @booking = Booking.new(booking_params)
     authorize @booking
     @event = Event.find(params[:event_id])
     @booking.event = @event
     @booking.user = current_user
     @booking.status = "Réservé"
-    # raise
-    if @booking.save
-      redirect_to event_path(@event)
+    if @event.bookings.count > @event.max_booking
+      redirect_to event_path, notice: "too many registrations!"
     else
-      render :new
+      @booking.save
+      redirect_to event_path(@event)
     end
+  end
+
+  def update
+    @booking = Booking.find(params[:id])
+    authorize @booking
+    @booking.status = "Cancelled"
+    @booking.save
+    redirect_to event_path(@booking.event)
   end
 
   private
