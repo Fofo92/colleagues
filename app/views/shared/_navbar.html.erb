@@ -7,19 +7,19 @@
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
       <ul class="navbar-nav mr-auto">
         <li class="nav-item">
-          <%= link_to new_event_path, class: "nav-link " do %>Créer Un Evenement<% end %>
+          <%= link_to '#', class: "nav-link", id: 'toggle-d-none-event'  do %>Évenement<% end %>
         </li>
 
         <li class="nav-item">
-          <%= link_to events_path,  class: "nav-link " do %>Liste des Evenements<% end %>
+          <%= link_to '#',  class: "nav-link ", id: 'toggle-d-none-user' do %>Profile<% end %>
         </li>
 
-        <li id="toggle-in"><i class="fas fa-angle-double-left"></i></li>
+        <!-- <li id="toggle-in"><i class="fas fa-angle-double-left"></i></li> -->
 
         <% if current_user.photo.attached? %>
          <%= image_tag current_user.photo, class: "avatar dropdown-toggle", id: "navbarDropdown", data: { toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>
         <% end %>
-        <li class="nav-item dropdown">
+        <!-- <li class="nav-item dropdown">
           <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
             <% if user_signed_in? %>
               <%= link_to user_path(current_user), class: "dropdown-item" do %>
@@ -33,7 +33,7 @@
               <% end %>
             <% end %>
           </div>
-        </li>
+        </li> -->
       </ul>
     </div>
   <% else %>

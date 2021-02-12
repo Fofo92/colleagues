@@ -13,6 +13,7 @@
 
   <body>
 
+      <%= render 'shared/flashes' %>
   <div class="test">
 
     <div class="body-container">
@@ -21,9 +22,9 @@
 
     <div class="menu-container">
       <%= render 'shared/navbar' %>
-      <%= render 'shared/flashes' %>
+      <%= render 'shared/menu-event-content' %>
+      <%= render 'shared/menu-users-content' %>
       <a id="toggle-out"><i class="far fa-times-circle"></i></a>
-      <h2>menu</h2>
     </div>
 
   </div>

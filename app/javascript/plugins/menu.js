@@ -19,23 +19,33 @@
 //   });
 // }
 
-//It work now!
+//It works now!
 
 const initMenu = () => {
   const buttonIn = document.querySelector('.navbar #toggle-in');
-  const buttonOut = document.querySelector('#toggle-out');
+  const dNoneEvent = document.querySelector('.navbar #toggle-d-none-event');
+  const dNoneUser = document.querySelector('.navbar #toggle-d-none-user');
   const menuContent = document.querySelector('.test');
-  // buttons.forEach( el => {
-    buttonIn.addEventListener('click', (event) => {
-      event.preventDefault()
-      menuContent.classList.toggle('menu-open')
-    });
+  const menuEvent = document.querySelector('.menu-wrapper-event');
+  const menuUser = document.querySelector('.menu-wrapper-user');
 
-    buttonOut.addEventListener('click', (event) => {
-      event.preventDefault()
-      menuContent.classList.toggle('menu-open')
-    });
-  // });
+    // buttonIn.addEventListener('click', (event) => {
+    //   event.preventDefault()
+    //   menuContent.classList.toggle('menu-open')
+    // });
+
+    dNoneEvent.addEventListener('click', (event) => {
+          event.preventDefault()
+          menuContent.classList.toggle('menu-open')
+          menuEvent.classList.toggle('d-none')
+        });
+
+    dNoneUser.addEventListener('click', (event) => {
+          event.preventDefault()
+          menuContent.classList.toggle('menu-open')
+          menuUser.classList.toggle('d-none')
+        });
+
 }
 
 

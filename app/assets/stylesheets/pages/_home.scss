@@ -28,9 +28,9 @@
 //   width: 30vw;
 // }
 
-// .d-none {
-//   display: none;
-// }
+.d-none {
+  display: none;
+}
 
 .body-container {
   min-height: 100vh;
@@ -45,11 +45,11 @@
   transform: translateX(-100%);
   width: 100%;
 
-  ul {
+  .navbar ul {
     display: flex;
   }
 
-  li {
+  .navbar li {
     margin-right: 12px;
     cursor: pointer;
   }
@@ -64,7 +64,7 @@
 
 
 .menu-container {
-  background: red;
+  // background: red;
   position: fixed;
   min-height: 100vh;
   top: 0;
@@ -76,10 +76,10 @@
 
 .menu-open {
   .body-container {
-    transform: translate3d(-700px, 0, 0);
+    transform: translate3d(-40vw, 0, 0);
   }
 
   .menu-container {
-    transform: translate3d(calc(100% - 700px), 0, 0);
+    transform: translate3d(calc(100% - 40vw), 0, 0);
   }
 }
