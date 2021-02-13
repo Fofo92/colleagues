@@ -1,5 +1,17 @@
-.message-container {
+#messages {
   background-color: hsla(244, 95%, 69%, 0.1);
-  padding: 20px;
-  margin-bottom: 15px;
+  border-radius: 4px;
 }
+
+.message-container {
+  // background-color: hsla(244, 95%, 69%, 0.1);
+  padding: 20px;
+
+  p {
+    display: inline-block;
+    background-color: red;
+    border-radius: 6px;
+    padding: 5px;
+  }
+}
+

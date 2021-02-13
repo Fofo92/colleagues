@@ -10,6 +10,29 @@
   background-color: cornflowerblue;
 }
 
-.content-fullwidth {
+.wrapper-event{
+  margin: 30px;
+  padding: 3% 20px 0;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  grid-template-areas:
+  "a b"
+  "c c"
+  "d d";
+}
 
+section {
+  grid-area: a;
+}
+
+.row {
+  grid-area: b;
+}
+
+#map {
+  grid-area: c;
+}
+
+.chatroom-container {
+  grid-area: d;
 }
