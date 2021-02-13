@@ -7,9 +7,9 @@
     <% end %>
 
     <div class="card-info">
-      <a href="#" class="tag-card">Pétanque</a>
+      <a href="#" class="tag-card"><%= event.hobby_list %></a>
       <% avatar_shift = 10 %>
-      <% event.bookings.first(5).each do |booked_user| %>
+      <% event.bookings.where(status: "Réservé").first(5).each do |booked_user| %>
         <% if booked_user.user.photo.attached? %>
           <%= image_tag booked_user.user.photo, class: "avatar-event", style: "left: #{avatar_shift}px;", alt: "avatar-bordered" %>
         <% end %>
