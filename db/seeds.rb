@@ -5,11 +5,12 @@
 #
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
-# require "open-uri"
-# puts ''
+require "open-uri"
+puts ''
 puts 'Resetting users table'
 puts ''
 puts 'Start seeding users'
+
 # file = URI.open("https://res.cloudinary.com/fofo921/image/upload/v1612272291/jh1uypwwyr8u8dkj2xft6447yjpy.jpg")
 # user = User.create!(first_name: 'Pascal', last_name: 'Fodiman', email: "pascal.fodiman@world_company.com", password: "123456")
 # user.photo.attach(io: file, filename: 'Fodiman.jpg', content_type: 'image/jpg')
@@ -41,14 +42,26 @@ puts 'Resetting events table'
 Event.destroy_all
 puts 'Start seeding events'
 Event.create(
-  name: "Croisière au Bosphore",
-  description: "Profitez de nos prix avantageux en basse saison !",
-  starts_at: "28/02/2021",
-  ends_at: "07/03/2021",
+  name: "Une smeaine tout schuss à Val Thorens",
+  description: "Au cœur de la Trentaise, Val-Thorens est une station savoyarde, la plus haute d'Europe! Chambres doubles ou individuelles (sur demande)",
+  starts_at: "20/03/2021",
+  ends_at: "27/03/2021",
   user_id: 1,
-  location: "Istambul",
+  location: "Val Thorens, Les Belleville, Auvergne-Rhône-Alpes, France",
   price: 400,
   max_booking: 50)
+
+Event.create(
+  name: "Croisière promenade sur la Seine",
+  description: "Venez découvrir, le temps d'une croisière, Paris par sa plus belle avenue : la Seine.
+  Participez à un dîner en collègues au fil de l'eau en visitant de manière originale les plus beaux monuments
+   parisiens sur l’un de nos bateaux-mouche : La Tour Eiffel, le Louvre, Notre Dame de Paris, La Conciergerie, le Musée d’Orsay…  et les monuments qui font la richesse du patrimoine parisien.   ",
+  starts_at: "20/03/2021",
+  ends_at: "27/03/2021",
+  user_id: 1,
+  location: "Port de la Conférence, Paris 8e Arrondissement, Île-de-France, France",
+  price: 20,
+  max_booking: 10)
 Event.create(
   name: "Concert à la Philharmonie de Paris",
   description: "K. Zimmermann joue les concertos n° 3 et 4 pour piano et orchstre de L. van Beethoven. Rarissime",
