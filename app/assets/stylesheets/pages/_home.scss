@@ -50,9 +50,14 @@
     transform: translate3d(-40vw, 0, 0);
   }
 
+  .wrapper-event {
+    transform: translate3d(-40vw, 0, 0);
+  }
+
   .menu-container {
     transform: translate3d(calc(100% - 40vw), 0, 0);
   }
+}
 
 //section 1
 .body {
@@ -119,5 +124,5 @@
 // Section 3
 
 .logo-brand {
-  max-width: 150px
+  max-width: 150px;
 }
