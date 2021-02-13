@@ -30,6 +30,7 @@ section {
     max-width: 500px;
     margin: 0 auto;
     padding: 0 20px;
+    grid-area: a;
 }
 
 .carousel {
@@ -111,11 +112,11 @@ section {
         min-width: 150px;
     }
 
-    .credit {
-        margin-top: 1rem;
-        color: rgba(0, 0, 0, 0.5);
-        display: block;
-    }
+    // .credit {
+    //     margin-top: 1rem;
+    //     color: rgba(0, 0, 0, 0.5);
+    //     display: block;
+    // }
 
     &.scrollable {
         overflow-y: scroll;
