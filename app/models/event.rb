@@ -11,8 +11,9 @@ class Event < ApplicationRecord
   #          inclusion: { in: (Date.today..Date.today + 1.years) }
   geocoded_by :location
   after_validation :geocode, if: :will_save_change_to_location?
+  acts_as_taggable_on :hobbies
   EVENT_TYPES = ["Arts martiaux", "Rugby", "Autres sports", "Cinéma", "Théatre", "Littérature" "Football", "Concerts", "Week-ends",
-    "Afterworks", "Sorties, ballades", "Détente", "Conférences, cours"]
+    "Afterworks", "Sorties & ballades", "Détente", "Conférences & cours"]
 
   private
 

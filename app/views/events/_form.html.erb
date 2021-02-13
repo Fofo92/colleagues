@@ -3,7 +3,10 @@
   <%= f.input :description, as: :text, label: "Description",
     placeholder: "Quoi de mieux pour relâcher la pression que de prendre 1 verre ou 2 entre collègues ;)" %>
   <%= f.input :location, label: "Lieu", placeholder: "5 Rue de la Huchette, 75005 Paris" %>
-  <%= f.input :event_types, collection: Event::EVENT_TYPES, input_html: { multiple: true}, as: :check_boxes  %>
+
+  <%= f.input :hobby_list, collection: Event::EVENT_TYPES.sort, input_html: { multiple: true, class: "tag-selector"},
+              as: :check_boxes, item_wrapper_class: 'tag-item', include_hidden: false  %>
+
   <%= f.input :starts_at, as: :string, label: "Début", input_html: { class: "datepicker" } %>
   <%= f.input :ends_at, as: :string, label: "Fin", input_html: { class: "datepicker" } %>
   <%= f.input :price, label: "Prix", placeholder: "10€" %>
