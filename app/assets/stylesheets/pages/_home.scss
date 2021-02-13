@@ -9,15 +9,61 @@
   flex-direction: row;
   justify-content: space-between;
   align-items: center;
+  padding: 4% 5%;
 }
 .home-img-logo {
   z-index: 0;
 }
 .img_home {
-  width: 500px;
+  width: 400px;
 }
 
 //Section 2
 .feature-presentation {
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  padding: 4% 5%;
+}
 
+.img_feature_home {
+  width: 300px;
+}
+
+.feature-card {
+  width: 300px;
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+}
+
+.feature-title {
+  padding-top: 10px;
+  font-size: 18px;
+  font-weight: bold;
+}
+
+.feature-description {
+  font-size: 16px;
+}
+
+#people {
+  width: 400px;
+}
+#left {
+  margin-top: -20px;
+}
+
+#middle {
+  margin-top: 20px;
+}
+
+#right {
+  margin-top:-20px;
+}
+
+// Section 3
+
+.logo-brand {
+  max-width: 150px
 }
