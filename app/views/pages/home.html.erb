@@ -1,22 +1,53 @@
 <div class="content-space">
-  <h1>Révolution</h1>
-  <p>Find me in app/views/pages/home.html.erb</p>
-</div>
 
-<div class="content-space">
+<!-- Section 1 -->
 
-  <div>
-    <%= link_to "Write a story", "#", class: "btn btn-ghost-primary" %>
-    <%= link_to "Book now", "#", class: "btn btn-flat-primary" %>
-    <%= link_to "Start now", "#", class: "btn btn-gradient-primary" %>
+  <div class="home-section">
+    <div class="home-presentation" >
+      <h1>Get Integrated.</h1>
+      <h2>Discover People & Events within your company that correspond to YOUR interests.</h2>
+      <br>
+      <%= link_to "Sign Up", new_user_registration_path, class: "btn btn-flat-primary" %>
+      <%= link_to "Sign In", user_session_path, class: "btn btn-ghost-primary" %>
+    </div>
+    <div class="home-img-logo">
+      <%= image_tag("integration.jpg", class: "img_home") %>
+    </div>
   </div>
 
-  <br>
+<!-- Section 2 -->
+
+  <h1 class="home-section">Know your coolleagues.</h1>
+  <div class="feature-presentation" >
+    <div class="feature-card">
+      <%= image_tag("networking.jpg", class: "img_feature_home", id: "left") %>
+      <span class="feature-title">Discover</span>
+      <span class="feature-description">Meet your colleagues, learn more about them and find the one who share your interests.</span>
+    </div>
+
+    <div class="feature-card">
+      <%= image_tag("chat-people.jpg", class: "img_feature_home", id: "middle") %>
+      <span class="feature-title">Chat</span>
+      <span class="feature-description">You can chat with your coolleagues, to know if they participating the same event. Or whatever you want to talk about!</span>
+    </div>
+
+    <div class="feature-card">
+      <%= image_tag("party.jpg", class: "img_feature_home") %>
+      <span class="feature-title" id="right">Events</span>
+      <span class="feature-description">Participate and Organise events to create the social life of your company, have fun with your colleagues, enjoy! </span>
+    </div>
+  </div>
+
+<!-- Section 3 -->
+
+  <h1 class="home-section">They trust us.</h1>
+  <div class="feature-presentation" >
+
+      <%= image_tag("Apple.png", class: "logo-brand") %>
+      <%= image_tag("Google.png", class: "logo-brand") %>
+      <%= image_tag("Le Wagon.png", class: "logo-brand") %>
+      <%= image_tag("Invision.png", class: "logo-brand") %>
+      <%= image_tag("SNCF.png", class: "logo-brand") %>
+  </div>
   
-  <div>
-    <%= link_to "Write a story", "#", class: "btn btn-ghost-secondary" %>
-    <%= link_to "Book now", "#", class: "btn btn-flat-secondary" %>
-    <%= link_to "Start now", "#", class: "btn btn-gradient-secondary" %>
-  </div>
-
 </div>

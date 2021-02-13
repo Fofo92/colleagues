@@ -24,7 +24,9 @@ class EventsController < ApplicationController
     @event = Event.new(event_params)
     authorize @event
     @event.user = current_user
-
+    # @event.tag_list.add ()
+    @event.hobby_list = params[:event][:hobby_list].join(", ")
+    @event.assign_attributes(event_params)
     if @event.valid?
       @event.save
       redirect_to event_path(@event)
@@ -40,9 +42,13 @@ class EventsController < ApplicationController
   def update
     authorize @event
     @event.user = current_user
+    @event.hobby_list = params[:event][:hobby_list].join(", ")
+    @event.assign_attributes(event_params)
     if @event.valid?
-      @event.update(event_params)
-      redirect_to user_path(current_user.id), :flash => { :success => "You booked your event successfully" }
+    # raise
+      @event.save
+      redirect_to user_path(current_user.id)
+    else
       render :edit
     end
   end

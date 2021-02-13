@@ -11,9 +11,9 @@
                 required: true,
                 placeholder: "Bond" %>
     <%= f.input :nickname, required: true, placeholder: "JB-007" %>
-    <%= f.input :hobby_list, label: "Vos hobbies", hint: "Voyages, Concerts, Cinéma" %>
+    <%= f.input :hobby_list, label: "Your hobbies", hint: "Voyages, Concerts, Cinéma" %>
     <%= f.input :photo, as: :file %>
-    <%= f.input :birthdate, as: :string, label: 'Date de naissance', required: false,
+    <%= f.input :birthdate, as: :string, label: 'Birthdate', required: false,
                 placeholder: "13/04/1968",
                 input_html: {class: "datepicker"} %>
     <%= f.input :email,
