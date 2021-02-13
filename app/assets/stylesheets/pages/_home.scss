@@ -1,1 +1,23 @@
 // Specific CSS for your home-page
+
+//section 1
+.body {
+  background-color: white;
+}
+.home-section {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+}
+.home-img-logo {
+  z-index: 0;
+}
+.img_home {
+  width: 500px;
+}
+
+//Section 2
+.feature-presentation {
+
+}
