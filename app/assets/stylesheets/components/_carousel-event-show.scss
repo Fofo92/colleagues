@@ -26,7 +26,7 @@ section {
     padding: 50px 0;
 }
 
-.container {
+.container-carousel-show {
     max-width: 500px;
     margin: 0 auto;
     padding: 0 20px;
@@ -144,6 +144,7 @@ section {
     label {
         display: block;
         @include aspect-ratio(1,1);
+        margin-bottom: 0;
 
 
         &:hover,
