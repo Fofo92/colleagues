@@ -1,5 +1,6 @@
 class UsersController < ApplicationController
-  before_action :set_user, only: [:show]
+  protect_from_forgery
+  #before_action :set_user, only: [:show]
 
   def index
     @users = User.all
@@ -7,18 +8,14 @@ class UsersController < ApplicationController
   end
 
   def show
-    authorize @user
-    @my_events = @user.bookings.where(status: "Réservé")
-  end
-
-  private
-
-  def set_user
     @user = User.find(params[:id])
+    authorize @user
+    @my_events = @user.bookings.where(status: "Booked")
   end
 
   private
-  def user_params
-    params.require(:user).permit()
-  end
+
+  # def set_user
+  #   @user = User.find(params[:id])
+  # end
 end

@@ -6,7 +6,7 @@ class BookingsController < ApplicationController
     @event = Event.find(params[:event_id])
     @booking.event = @event
     @booking.user = current_user
-    @booking.status = "Réservé"
+    @booking.status = "Booked"
     if @event.bookings.count > @event.max_booking
       redirect_to event_path, notice: "too many registrations!"
     else
