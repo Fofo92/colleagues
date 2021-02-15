@@ -3,10 +3,9 @@
   justify-content: space-between;
   background: #221F53;
   padding: 10px 1%;
-  position: fixed;
-  width:100%;
   height: 60px;
-  z-index: 99;
+  position: fixed;
+  display:flex
 }
 
 .navbar-lewagon .navbar-collapse {

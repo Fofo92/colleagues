@@ -9,3 +9,30 @@
   z-index: 1;
   background-color: cornflowerblue;
 }
+
+.wrapper-event{
+  padding: 60px;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  grid-template-areas:
+  "a b"
+  "c c"
+  "d d";
+}
+
+section {
+  grid-area: a;
+}
+
+.row {
+  grid-area: b;
+  padding-top: inherit;
+}
+
+#map {
+  grid-area: c;
+}
+
+.chatroom-container {
+  grid-area: d;
+}
