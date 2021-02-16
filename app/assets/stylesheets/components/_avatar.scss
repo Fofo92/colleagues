@@ -30,3 +30,13 @@
   top: 20px;
   z-index: 6;
 }
+
+.initials {
+  position: relative;
+  //top: 25px; /* 25% of parent */
+  font-size: 40px; /* 50% of parent */
+  line-height: 50px; /* 50% of parent */
+  color: #fff;
+  font-family: "Courier New", monospace;
+  font-weight: bold;
+}
