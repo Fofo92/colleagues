@@ -3,7 +3,25 @@
   </div>
 </div>
 
-<div class="content-space-color">
+<div>
+  <%= form_tag events_path, class: 'searchbar', method: :get do %>
+    <div>
+      <%= text_field_tag :query,
+        params[:query],
+        class: "form-control",
+        placeholder: "Find an event" %>
+    </div>
+    <div>
+      <%= select_tag :tag,
+      options_from_collection_for_select(ActsAsTaggableOn::Tag.all,"name","name"),include_blank: true
+      %>
+    </div>
+  <%= submit_tag "Search", class: "btn btn-flat-primary" %>
+  <% end %>
+</div>
+
+
+<div class="content-space-color searchbar-spacer">
 
   <div class="events-wrapper">
     <%= render 'card-event' %>
