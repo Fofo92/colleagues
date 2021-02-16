@@ -9,5 +9,6 @@ Rails.application.routes.draw do
   resources :bookings, only: :update
 
   resources :users, only: [:index, :show, :edit, :update]
+
   # post '/events/:event_id/bookings/', to: 'bookings#book', as: :book
 end

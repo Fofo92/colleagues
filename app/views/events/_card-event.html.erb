@@ -9,13 +9,13 @@
     <div class="card-info">
       <a href="#" class="tag-card"><%= event.hobby_list %></a>
       <% avatar_shift = 10 %>
-      <% event.bookings.where(status: "Réservé").first(5).each do |booked_user| %>
+      <% event.bookings.where(status: "Booked").first(5).each do |booked_user| %>
         <% if booked_user.user.photo.attached? %>
           <%= image_tag booked_user.user.photo, class: "avatar-event", style: "left: #{avatar_shift}px;", alt: "avatar-bordered" %>
         <% end %>
         <% avatar_shift += 10  %>
       <% end %>
-      <p><%= pluralize(event.bookings.where(status: "Réservé").count, "participant", plural: "participants", locale: :fr) %> </p>
+      <p><%= pluralize(event.bookings.where(status: "Booked").count, "participant", plural: "participants", locale: :fr) %> </p>
     </div>
   </div>
 <% end %>
