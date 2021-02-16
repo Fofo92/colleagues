@@ -8,16 +8,12 @@ const initEventCable = () => {
     consumer.subscriptions.create({ channel: "EventChannel", id: id }, {
       received(data) {
         console.log(data); // called when data is broadcast in the cable
-      },
-    });
-
-    consumer.subscriptions.create({ channel: "EventChannel", id: id }, {
-      received(data) {
+        console.log(messagesContainer);
         messagesContainer.insertAdjacentHTML('beforeend', data);
-      }
+        document.getElementById("message_content").value = "";
+      },
     });
   }
 }
-
 
 export { initEventCable };
