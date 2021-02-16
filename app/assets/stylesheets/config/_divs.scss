@@ -1,15 +1,38 @@
 .content-space {
-  padding: 3% 20px 0;
+  padding: 3% 20px 7%;
   z-index: 1;
   background-color: white;
 }
 
 .content-space-color {
-  padding: 3% 20px 0;
+  padding: 3% 20px 7%;
   z-index: 1;
   background-color: cornflowerblue;
 }
 
-.content-fullwidth {
+.wrapper-event{
+  padding: 60px;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  grid-template-areas:
+  "a b"
+  "c c"
+  "d d";
+}
 
+section {
+  grid-area: a;
+}
+
+.row {
+  grid-area: b;
+  padding-top: inherit;
+}
+
+#map {
+  grid-area: c;
+}
+
+.chatroom-container {
+  grid-area: d;
 }

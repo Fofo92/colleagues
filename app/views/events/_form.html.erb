@@ -11,6 +11,6 @@
   <%= f.input :ends_at, as: :string, label: "Fin", input_html: { class: "datepicker" } %>
   <%= f.input :price, label: "Prix", placeholder: "10€" %>
   <%= f.input :max_booking, label: "Nombre de participants maximum" %>
-  <%= f.input :photo, as: :file %>
+  <%= f.input :photos, as: :file, input_html: { multiple: true } %>
   <%= f.button :submit, class: 'btn-flat-primary' %>
 <% end %>

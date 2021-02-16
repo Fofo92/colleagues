@@ -1,0 +1,24 @@
+#messages {
+  background-color: hsla(244, 95%, 69%, 0.1);
+  border-radius: 4px;
+}
+
+.message-container {
+  // background-color: hsla(244, 95%, 69%, 0.1);
+  padding: 20px;
+
+  p {
+    display: inline-block;
+    background-color: red;
+    border-radius: 6px;
+    padding: 5px;
+  }
+}
+
+.author img {
+  width: 40px;
+  border-radius: 50%;
+  box-shadow: 0 1px 2px rgba(0,0,0,0.2);
+  height: 40px;
+
+}

@@ -12,10 +12,19 @@
   </head>
 
   <body>
-    <%= render 'shared/navbar' %>
     <%= render 'shared/flashes' %>
-    <%= render 'shared/footer' %>
+    <div class="test">
 
-    <%= yield %>
+      <div class="body-container">
+        <%= yield %>
+      </div>
+        <div class="menu-container" >
+          <%= render 'shared/navbar' %>
+          <%= render 'shared/menu-event-content' %>
+          <%= render 'shared/menu-users-content' %>
+          <a id="toggle-out"><i class="far fa-times-circle"></i></a>
+        </div>
+    </div>
+    <%= render 'shared/footer' %>
   </body>
 </html>

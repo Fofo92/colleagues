@@ -1,5 +1,60 @@
 // Specific CSS for your home-page
 
+.d-none {
+  display: none;
+}
+
+.body-container {
+  min-height: 100vh;
+  transition: transform 600ms ease;
+}
+
+.navbar{
+  // transform: translateX(-100%);
+  position: absolute;
+  top: 0;
+  left: 0;
+  transform: translateX(-100%);
+  width: 100%;
+
+  .navbar ul {
+    display: flex;
+  }
+
+  .navbar li {
+    margin-right: 12px;
+    cursor: pointer;
+  }
+}
+
+#toggle-out {
+  cursor: pointer;
+  position: fixed;
+  top: 20px;
+  left: 650px;
+}
+
+
+.menu-container {
+  position: fixed;
+  min-height: 100vh;
+  top: 0;
+  width: 100%;
+  right: 0;
+  transform: translate3d(100%, 0, 0);
+  transition: transform 600ms ease;
+}
+
+.menu-open {
+  .body-container {
+    transform: translate3d(-40vw, 0, 0);
+  }
+
+  .menu-container {
+    transform: translate3d(calc(100% - 40vw), 0, 0);
+  }
+}
+
 //section 1
 .body {
   background-color: white;
@@ -65,5 +120,5 @@
 // Section 3
 
 .logo-brand {
-  max-width: 150px
+  max-width: 150px;
 }

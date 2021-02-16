@@ -25,6 +25,7 @@ require("channels")
 // External imports
 import "bootstrap";
 import { initFlatpickr } from "../plugins/init_flatpickr";
+import { initMenu } from "../plugins/menu";
 import { initMapbox } from "../plugins/init_mapbox";
 import { initAutocomplete} from '../plugins/init_autocomplete';
 import { initEventCable } from '../channels/init_event_channel';
@@ -36,6 +37,7 @@ document.addEventListener('turbolinks:load', () => {
   // Call your functions here, e.g:
   // initSelect2();
   initFlatpickr();
+  initMenu();
   initMapbox();
   initAutocomplete();
   initEventCable();

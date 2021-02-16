@@ -2,7 +2,7 @@ class Event < ApplicationRecord
   attr_accessor :event_types
 
   belongs_to :user
-  has_one_attached :photo, dependent: :destroy
+  has_many_attached :photos, dependent: :destroy
   has_many :messages, dependent: :destroy
   has_many :bookings, dependent: :destroy
   validates :name, :price, :location, :max_booking, presence: true
