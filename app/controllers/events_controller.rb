@@ -3,6 +3,12 @@ class EventsController < ApplicationController
 
   def index
     @events = Event.all
+    if params[:query].present?
+      @events = @events.search_by_event_name(params[:query])
+    end
+    if params[:tag].present?
+      @events = @events.tagged_with(params[:tag])
+    end
     authorize @events
   end
 
