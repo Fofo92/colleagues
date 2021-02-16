@@ -37,6 +37,6 @@ document.addEventListener('turbolinks:load', () => {
   // initSelect2();
   initFlatpickr();
   initMenu();
-  initMapbox();
+  // initMapbox();
   initAutocomplete();
 });
