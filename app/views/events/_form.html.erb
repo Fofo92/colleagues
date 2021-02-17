@@ -8,11 +8,14 @@
 
       <%= f.input :hobby_list, collection: Event::EVENT_TYPES.sort, input_html: { multiple: true, class: "tag-selector"},
                   as: :check_boxes, item_wrapper_class: 'tag-item', include_hidden: false %>
-
-      <%= f.input :starts_at, as: :string, label: "Start", input_html: { class: "datepicker" } %>
-      <%= f.input :ends_at, as: :string, label: "End", input_html: { class: "datepicker" } %>
-      <%= f.input :price, label: "Price", placeholder: "10€" %>
-      <%= f.input :max_booking, label: "Max Participants" %>
+      <div class="input-line">
+        <div id="mr15"><%= f.input :starts_at, as: :string, label: "Start", input_html: { class: "datepicker" } %></div>
+        <%= f.input :ends_at, as: :string, label: "End", input_html: { class: "datepicker" } %>
+      </div>
+      <div class="input-line">
+        <div id="mr15"><%= f.input :price, label: "Price", placeholder: "10€" %></div>
+        <%= f.input :max_booking, label: "Max Participants" %>
+      </div>
       <%= f.input :photos, as: :file, input_html: { class: "d-none", multiple: true }, label_html: { class: "upload-photo" } %>
     </div>
 

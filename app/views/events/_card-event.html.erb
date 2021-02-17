@@ -1,13 +1,13 @@
 <% @events.each do |event| %>
   <div class="card-event">
     <%= link_to event_path(event) do %>
-      <div class="card-image" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url('<%= cl_image_path event.photos.attached? ? event.photos.first : "https://res.cloudinary.com/dyhn0jyct/image/upload/v1612621598/wodotuld8qbynuvby2oj71l9x6gr.jpg" %>')">
+      <div class="card-image" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url('<%= cl_image_path event.photos.first %>')">
       <%= event.name %>
       </div>
     <% end %>
 
     <div class="card-info">
-      <a href="#" class="tag-card"><%= event.hobby_list %></a>
+      <a href="#" class="tag-card"><%= event.hobby_list.first %></a>
       <% avatar_shift = 10 %>
       <% event.bookings.where(status: "Réservé").first(5).each do |booked_user| %>
         <% if booked_user.user.photo.attached? %>

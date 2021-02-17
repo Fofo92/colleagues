@@ -5,6 +5,9 @@
   padding-top: 100px; // pour qu'il ne soit pas caché par la navbar
   box-shadow: 1px 1px 2px rgba(0,0,0,0.1);
   background: hsla(244, 95%, 69%, .1);
+  .btn-flat-primary {
+    margin-bottom: 30px;
+  }
 }
 .form-event {
   width: 70%;
@@ -41,4 +44,21 @@
   font-weight: 500;
   background: white;
   border-radius: 2px;
+}
+
+.input-line {
+  display: flex;
+
+  .form-group {
+    flex-grow: 1;
+  }
+}
+
+.form-group {
+  margin-top: 15px;
+}
+
+#mr15 {
+  flex-grow: 1;
+  margin-right: 15px;
 }
