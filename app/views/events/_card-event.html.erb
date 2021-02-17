@@ -2,7 +2,8 @@
   <div class="card-event">
     <%= link_to event_path(event) do %>
       <div class="card-image" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url('<%= cl_image_path event.photos.first %>')">
-      <%= event.name %>
+        <%= image_tag event.user.photo %>
+        <%= event.name %>
       </div>
     <% end %>
 
