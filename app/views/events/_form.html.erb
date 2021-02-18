@@ -17,7 +17,8 @@
         <%= f.input :max_booking, label: "Max Participants" %>
       </div>
       <%= f.input :photos, as: :file, input_html: { class: "d-none", multiple: true }, label_html: { class: "upload-photo" }, remote: true %>
-      <p id="reload">+ <%= @event.photos.count %> photos</p>
+      <!-- To know the number of photos that have been uploaded  -->
+     <!--  <p id="reload">+ <%= @event.photos.count %> photos</p> -->
     </div>
 
     <div class="form-actions">
