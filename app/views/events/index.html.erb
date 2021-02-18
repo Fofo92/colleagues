@@ -13,7 +13,7 @@
     </div>
     <div>
       <%= select_tag :tag,
-      options_from_collection_for_select(ActsAsTaggableOn::Tag.all,"name","name"),include_blank: true
+      options_for_select(Event::EVENT_TYPES.sort), include_blank: true
       %>
     </div>
   <%= submit_tag "Search", class: "btn btn-flat-primary" %>
