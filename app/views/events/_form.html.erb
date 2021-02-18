@@ -1,16 +1,30 @@
-<%= simple_form_for @event do |f| %>
-  <%= f.input :name, label: "Nom de l'évènement", placeholder: "Sortie à Paris" %>
-  <%= f.input :description, as: :text, label: "Description",
-    placeholder: "Quoi de mieux pour relâcher la pression que de prendre 1 verre ou 2 entre collègues ;)" %>
-  <%= f.input :location, label: "Lieu", placeholder: "5 Rue de la Huchette, 75005 Paris" %>
+<div class="form-event">
+  <%= simple_form_for @event do |f| %>
+    <div class="form-inputs">
+      <%= f.input :name, label: "Name", placeholder: "Sortie à Paris", id:"form-title" %>
+      <%= f.input :description, as: :text, label: "Description",
+        placeholder: "Quoi de mieux pour relâcher la pression que de prendre 1 verre ou 2 entre collègues ;)" %>
+      <%= f.input :location, label: "Location", placeholder: "5 Rue de la Huchette, 75005 Paris" %>
 
-  <%= f.input :hobby_list, collection: Event::EVENT_TYPES.sort, input_html: { multiple: true, class: "tag-selector"},
-              as: :check_boxes, item_wrapper_class: 'tag-item', include_hidden: false  %>
+      <%= f.input :hobby_list, collection: Event::EVENT_TYPES.sort, input_html: { multiple: true, class: "tag-selector"},
+                  as: :check_boxes, item_wrapper_class: 'tag-item', include_hidden: false %>
+      <div class="input-line">
+        <div id="mr15"><%= f.input :starts_at, as: :string, label: "Start", input_html: { class: "datepicker" } %></div>
+        <%= f.input :ends_at, as: :string, label: "End", input_html: { class: "datepicker" } %>
+      </div>
+      <div class="input-line">
+        <div id="mr15"><%= f.input :price, label: "Price", placeholder: "10€" %></div>
+        <%= f.input :max_booking, label: "Max Participants" %>
+      </div>
+      <%= f.input :photos, as: :file, input_html: { class: "d-none", multiple: true }, label_html: { class: "upload-photo" }, remote: true %>
+      <!-- To know the number of photos that have been uploaded  -->
+     <!--  <p id="reload">+ <%= @event.photos.count %> photos</p> -->
+    </div>
 
-  <%= f.input :starts_at, as: :string, label: "Début", input_html: { class: "datepicker" } %>
-  <%= f.input :ends_at, as: :string, label: "Fin", input_html: { class: "datepicker" } %>
-  <%= f.input :price, label: "Prix", placeholder: "10€" %>
-  <%= f.input :max_booking, label: "Nombre de participants maximum" %>
-  <%= f.input :photos, as: :file, input_html: { multiple: true } %>
-  <%= f.button :submit, class: 'btn-flat-primary' %>
-<% end %>
+    <div class="form-actions">
+      <%= f.button :submit, class: 'btn-flat-primary' %>
+    </div>
+  <% end %>
+</div>
+
+
