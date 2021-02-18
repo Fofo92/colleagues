@@ -45,6 +45,6 @@ document.addEventListener('turbolinks:load', () => {
 
   // to be finished
 
-  // photoCount();
+  photoCount();
 
 });
