@@ -15,13 +15,8 @@ class Event < ApplicationRecord
   EVENT_TYPES = ["Arts martiaux", "Rugby", "Autres sports", "Cinéma", "Théatre", "Littérature", "Football", "Concerts", "Week-ends",
     "Afterworks", "Sorties & ballades", "Détente", "Conférences & cours", "Cuisine & pâtisserie" ]
 
-
-    include PgSearch::Model
-    pg_search_scope :search_by_event_name,
-    against: [ :name ],
-    using: {
-      tsearch: { prefix: true }
-  }
+  include PgSearch::Model
+  pg_search_scope :search_by_event_name, against: [:name], using: { tsearch: { prefix: true } }
 
   private
 

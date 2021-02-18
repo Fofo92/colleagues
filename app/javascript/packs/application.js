@@ -27,7 +27,6 @@ import "bootstrap";
 import { initFlatpickr } from "../plugins/init_flatpickr";
 import { initMenu } from "../plugins/menu";
 import { initMapbox } from "../plugins/init_mapbox";
-<<<<<<< HEAD
 import { initAutocomplete } from '../plugins/init_autocomplete';
 import { photoCount } from '../plugins/photo_count';
 import { initEventCable } from '../channels/init_event_channel';

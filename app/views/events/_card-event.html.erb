@@ -1,7 +1,7 @@
 <% @events.each do |event| %>
   <div class="card-event">
     <%= link_to event_path(event) do %>
-      <div class="card-image" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url('<%= cl_image_path event.photos %>')">
+      <div class="card-image" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url('<%= cl_image_path event.photos.first.key %>')">
         <%= event.name %>
       </div>
     <% end %>
@@ -15,7 +15,10 @@
         <% end %>
         <% avatar_shift += 10  %>
       <% end %>
-      <p><%= pluralize(event.bookings.where(status: "Booked").count, "participant", plural: "participants", locale: :fr) %> </p>
+
+      <p><%= pluralize(event.bookings.where(status: "Booked").count, "participant", plural: "participants", locale: :fr) %>
+        <%= image_tag event.user.photo, class: "avatar-event", style: "right: 0px;", alt: "avatar-bordered" %>
+      </p>
     </div>
   </div>
 <% end %>
