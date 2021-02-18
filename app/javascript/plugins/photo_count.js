@@ -1,11 +1,12 @@
 const photoCount = () => {
 
-  const buttonPhotos = document.querySelector('.upload-photo')
+  const inputPhotos = document.querySelector('.input-photo')
   const reloadCount = document.querySelector('#reload')
-  console.log(reloadCount)
 
-  buttonPhotos.addEventListener('click', (photo) => {
-    ("#reload").load(" #reload > *");
+  if (!inputPhotos) return
+
+  inputPhotos.addEventListener('change', (photo) => {
+    reloadCount.innerHTML = `+ ${inputPhotos.files.length} photos`
   })
 }
 
