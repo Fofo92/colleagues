@@ -3,6 +3,11 @@
     <%= cl_image_tag event.photos.any? ? event.photos.first.key : "https://res.cloudinary.com/drzg8kw0k/image/upload/v1611342995/4hux27613gnhmjimg612mls9chi0.jpg" %>
     <div class="card-product-infos">
       <%= event.name %>
+      <% if event.starts_at.strftime("%d/%m/%Y") == event.ends_at.strftime("%d/%m/%Y") %>
+        le <%= event.starts_at.strftime("%d/%m/%Y") %>
+      <% else %>
+        du <%= event.starts_at.strftime("%d/%m/%Y") %> au <%= event.ends_at.strftime("%d/%m/%Y") %>
+      <% end %>
       <p><%= event.description %></p>
     </div>
     <div class="icon-zone">
