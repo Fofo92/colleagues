@@ -12,8 +12,16 @@ class Event < ApplicationRecord
   geocoded_by :location
   after_validation :geocode, if: :will_save_change_to_location?
   acts_as_taggable_on :hobbies
-  EVENT_TYPES = ["Arts martiaux", "Rugby", "Autres sports", "Cinéma", "Théatre", "Littérature" "Football", "Concerts", "Week-ends",
-    "Afterworks", "Sorties & ballades", "Détente", "Conférences & cours"]
+  EVENT_TYPES = ["Arts martiaux", "Rugby", "Autres sports", "Cinéma", "Théatre", "Littérature", "Football", "Concerts", "Week-ends",
+    "Afterworks", "Sorties & ballades", "Détente", "Conférences & cours", "Cuisine & pâtisserie" ]
+
+
+    include PgSearch::Model
+    pg_search_scope :search_by_event_name,
+    against: [ :name ],
+    using: {
+      tsearch: { prefix: true }
+  }
 
   private
 

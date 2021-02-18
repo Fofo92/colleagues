@@ -1,0 +1,13 @@
+.searchbar {
+  background-color: none;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 10;
+  margin: -25px 0;
+}
+
+#tag {
+  height:38px;
+  margin:0 5px
+}

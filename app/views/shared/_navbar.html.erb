@@ -1,4 +1,5 @@
 <div class="navbar navbar-expand-sm navbar-light navbar-lewagon">
+
   <% if user_signed_in? %>
     <%= link_to events_path, class: "navbar-brand" do %>
       <%= image_tag "https://res.cloudinary.com/drzg8kw0k/image/upload/v1612022994/Coolleagues/Logo-Coolleagues_foua1s.png" %>
@@ -9,7 +10,6 @@
         <li class="nav-item">
           <%= link_to '#', class: "nav-link", id: 'toggle-d-none-event'  do %>Evenement<% end %>
         </li>
-
         <li class="nav-item">
           <%= link_to '#',  class: "nav-link ", id: 'toggle-d-none-user' do %>Profile<% end %>
         </li>
@@ -29,16 +29,12 @@
                 <i class="fas fa-user"></i> <%= current_user.email %>
               <% end %>
               <%= link_to destroy_user_session_path, method: :delete, class: "dropdown-item" do %>
-                <i class="fas fa-sign-out-alt"></i> Se déconnecter
+                <i class="fas fa-sign-out-alt"></i> Log out
               <% end %>
             <% end %>
           </div>
         </li> -->
       </ul>
     </div>
-  <% else %>
-    <%= link_to root_path, class: "navbar-brand" do %>
-      <%= image_tag "https://res.cloudinary.com/drzg8kw0k/image/upload/v1612025681/Coolleagues/logo_ilmvhz.png" %>
-    <% end %>
   <% end %>
 </div>
