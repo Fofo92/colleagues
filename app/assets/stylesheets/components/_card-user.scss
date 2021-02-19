@@ -27,6 +27,14 @@
   margin-top: 8px;
 }
 
-.card-user .card-user-infos {
+.card-user {
   padding: 16px;
+}
+
+.card-user-infos {
+  margin-left: 20px;
+
+  p {
+    margin-right: 40px;
+  }
 }
