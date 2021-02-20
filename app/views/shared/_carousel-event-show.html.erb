@@ -1,28 +1,28 @@
-<section>
-    <div class="container-carousel">
-        <div class="carousel">
-            <input type="radio" name="slides" checked="checked" id="slide-1">
-            <% (@event.photos.count-1).times do |n| %>
-              <input type="radio" name="slides" id="slide-<%= n+2 %>">
-            <% end %>
-            <ul class="carousel__slides">
-              <% @event.photos.each do |photo| %>
-                <li class="carousel__slide">
-                    <figure>
-                      <div>
-                          <%= cl_image_tag photo.key %>
-                      </div>
-                    </figure>
-                </li>
+  <section>
+      <div class="container-carousel">
+          <div class="carousel">
+              <input type="radio" name="slides" checked="checked" id="slide-1">
+              <% (@event.photos.count-1).times do |n| %>
+                <input type="radio" name="slides" id="slide-<%= n+2 %>">
               <% end %>
-            </ul>
-            <ul class="carousel__thumbnails">
-                <% @event.photos.each_with_index do |photo, index| %>
-                  <li>
-                      <label for="slide-<%= index+1 %>"> <%= cl_image_tag photo.key %> </label>
+              <ul class="carousel__slides">
+                <% @event.photos.each do |photo| %>
+                  <li class="carousel__slide">
+                      <figure>
+                        <div>
+                            <%= cl_image_tag photo.key %>
+                        </div>
+                      </figure>
                   </li>
                 <% end %>
-            </ul>
-        </div>
-    </div>
-</section>
+              </ul>
+              <ul class="carousel__thumbnails">
+                  <% @event.photos.each_with_index do |photo, index| %>
+                    <li>
+                        <label for="slide-<%= index+1 %>"> <%= cl_image_tag photo.key %> </label>
+                    </li>
+                  <% end %>
+              </ul>
+          </div>
+      </div>
+  </section>
