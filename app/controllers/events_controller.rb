@@ -2,14 +2,15 @@ class EventsController < ApplicationController
   before_action :set_event, only: [:show, :edit, :update, :destroy]
 
   def index
-    @events = Event.all
+    @all_events = Event.all
     if params[:query].present?
-      @events = @events.search_by_event_name(params[:query])
+      @events = []
+      @events << @all_events.tagged_with("#{params[:query]}", :any => true)
+      @events << @all_events.search_by_event_name(params[:query])
+      @events.flatten!
     end
-    if params[:tag].present?
-      @events = @events.tagged_with(params[:tag])
-    end
-    authorize @events
+
+    authorize @all_events
   end
 
   def show
