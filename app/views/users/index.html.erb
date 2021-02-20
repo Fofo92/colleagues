@@ -2,7 +2,9 @@
 
 <% @users.each do |user| %>
   <div class="card-user">
-    <%= cl_image_tag user.photo.key %>
+    <% if user.photo.attached? %>
+      <%= cl_image_tag user.photo.key %>
+    <% end %>
     <div class="card-user-infos">
       <h2><%= link_to user.nickname, user_path(user) %></h2>
       <p><strong><%= user.first_name %> <%= user.last_name %></strong></p>
