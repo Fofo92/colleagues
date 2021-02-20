@@ -1,52 +1,73 @@
-<div class="wrapper-event">
-  <%= render 'shared/carousel-event-show', event:@event %>
-  <div class="row">
-    <h2 id="title">Detailed information on <%= @event.name %></h2>
-    <div>
-      <p style="font-weight: bold; font-size: 20px" ><%= @event.name %></p>
-      <p><strong>Organizer</strong>: <%= @event.user.nickname %> </p>
-      <p><strong>Event category</strong>: <%= @event.hobby_list %></p>
-      <p><strong>Event starting at</strong>: <%= @event.starts_at.strftime("%d/%m/%Y") %></p>
-      <p><strong>Event ending at</strong>: <%= @event.ends_at.strftime("%d/%m/%Y") %></p>
-      <p><strong>Location</strong>: <%= @event.location %></p>
-      <p><strong>Max. participants</strong>: <%= @event.max_booking %></p>
-      <p><strong>Participants</strong>: <%= @booking_count %></p>
-      <p><strong>Description</strong>: <%= @event.description %></p>
-      <% if @booking %>
-        <%= link_to "Cancel my booking", booking_path(@booking), method: :patch, class: 'btn btn-flat-primary' %>
-      <% else  %>
-        <%= link_to "Book", event_bookings_path(@event), method: :post, class: 'btn btn-flat-primary' %>
-      <% end %>
-      <% if policy(@event).update? %>
-        <%= link_to "Update this event", edit_event_path(@event), class: 'btn btn-flat-primary' %>
-      <% end %>
-      <%= link_to "Back to the events", events_path, class: 'btn btn-flat-primary' %>
+<div class="content-space">
+
+  <div class="back-home" style="margin-top:40px;">
+    <%= link_to "< Back to the events", events_path, style:"color:grey;" %>
+  </div>
+
+  <div class="flex-row flex" style="padding-top: 20px;">
+<!-- Carousel -->
+    <%= render 'shared/carousel-event-show', event:@event %>
+<!-- Infos -->
+    <div class="flex-col">
+      <h2 id="title" style="padding-top:0;">Detailed information on <%= @event.name %></h2>
+        <p style="font-weight: bold; font-size: 20px" ><%= @event.name %></p>
+        <p>
+          <strong>Organizer</strong>: <%= @event.user.nickname %>
+            <% if current_user.photo.attached? %>
+               <%= image_tag current_user.photo, class: "avatar dropdown-toggle", id: "navbarDropdown", data: { toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>
+            <% end %>
+        </p>
+        <p><strong>Event category</strong>: <%= @event.hobby_list %></p>
+        <p><strong>Event starting at</strong>: <%= @event.starts_at.strftime("%d/%m/%Y") %></p>
+        <p><strong>Event ending at</strong>: <%= @event.ends_at.strftime("%d/%m/%Y") %></p>
+        <p><strong>Location</strong>: <%= @event.location %></p>
+        <p><strong>Max. participants</strong>: <%= @event.max_booking %></p>
+        <p><strong>Participants</strong>: <%= @booking_count %></p>
+        <p><strong>Description</strong>: <%= @event.description %></p>
+        <% if @booking %>
+          <%= link_to "Cancel my booking", booking_path(@booking), method: :patch, class: 'btn btn-flat-primary btn-flat-cancel' %>
+        <% else  %>
+          <%= link_to "Book", event_bookings_path(@event), method: :post, class: 'btn btn-flat-primary' %>
+        <% end %>
+        <% if policy(@event).update? %>
+          <%= link_to "Update this event", edit_event_path(@event), class: 'btn btn-ghost-primary' %>
+        <% end %>
+
     </div>
   </div>
-  <div id="map"
-    style="width: 50%; height: 200px;"
-    data-markers="<%= @markers.to_json %>"
-    data-mapbox-api-key="<%= ENV['MAPBOX_API_KEY'] %>">
+
+<!-- MAP -->
+
+  <div class="">
     <h2 id="title">Map</h2>
+    <div id="map"
+      style="width: 95%; height: 250px; margin: 0 0 50px"
+      data-markers="<%= @markers.to_json %>"
+      data-mapbox-api-key="<%= ENV['MAPBOX_API_KEY'] %>">
+    </div>
   </div>
+
+
+<!-- ChatRoom -->
+
   <div class="chatroom-container">
-    <h2 id="title">Chat room</h2>
-    <% if @booking %>
-      <h2 class: "mt-2">Chat room</h2>
-      <div id="messages" class="col-lg-12" data-event-id="<%= @event.id %>">
-        <% @event.messages.each do |message| %>
-          <div class="message-container" id="message-<%= message.id %>">
-            <i class="author">
-              <% if message.user.photo.attached? %>
-                 <a href="#"><%= image_tag message.user.photo %></a>
-               <% end %>
-              <small><%= message.created_at.strftime("%d/%m/%Y à %H:%M:%S") %></small>
-            </i>
-            <p><strong><%= message.user.nickname %></strong>: <%= message.content %></p>
-          </div>
-        <% end %>
-      </div>
-      <%= simple_form_for [ @event, @message ], remote: true do |f| %>
+  <div id="messages" data-chatroom-id="<%= @event.id %>">
+  <% if @booking %>
+    <h2 id="title" style="margin:-10px 0 20px;">Chat room</h2>
+    <div id="messages" class="col-lg-12" data-event-id="<%= @event.id %>">
+      <% @event.messages.each do |message| %>
+        <div class="message-container" id="message-<%= message.id %>">
+          <i class="author">
+            <% if message.user.photo.attached? %>
+               <a href="#"><%= image_tag message.user.photo %></a>
+             <% end %>
+            <small><%= message.created_at.strftime("%d/%m/%Y à %H:%M:%S") %></small>
+          </i>
+          <p><strong><%= message.user.nickname %></strong>: <%= message.content %></p>
+        </div>
+      <% end %>
+    </div>
+      <%= simple_form_for [ @event, @message ] do |f| %>
         <%= f.input :content, label: false,
         placeholder: "Your message to ##{@event.name}", id: 'send-msg' %>
         <%= f.button :submit, method: :post, class: 'btn btn-flat-primary' %>
