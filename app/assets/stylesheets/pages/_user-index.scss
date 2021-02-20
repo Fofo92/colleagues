@@ -22,4 +22,11 @@ h1 {
   display: flex;
   align-items: center;
   margin-bottom: 15px;
+
+  &:hover {
+    // width: 80%;
+    transition: 400ms ease;
+    // height: 160px;
+    transform: scale(1.2);
+  }
 }
