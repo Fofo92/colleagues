@@ -6,7 +6,12 @@ const photoCount = () => {
   if (!inputPhotos) return
 
   inputPhotos.addEventListener('change', (photo) => {
-    reloadCount.innerHTML = `+ ${inputPhotos.files.length} photos`
+    if (inputPhotos.files.length <= 1) {
+      reloadCount.innerHTML = `+ ${inputPhotos.files.length} photo`
+    }
+    else {
+      reloadCount.innerHTML = `+ ${inputPhotos.files.length} photos`
+    }
   })
 }
 
