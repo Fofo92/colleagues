@@ -42,9 +42,6 @@ document.addEventListener('turbolinks:load', () => {
   initMapbox();
   initAutocomplete();
   initEventCable();
-
-  // to be finished
-
   photoCount();
 
 });
