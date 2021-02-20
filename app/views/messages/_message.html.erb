@@ -1,9 +1,21 @@
-<div class="message-container" id="message-<%= message.id %>">
-  <i class="author">
-    <% if message.user.photo.attached? %>
-       <a href="#"><%= image_tag message.user.photo %></a>
-     <% end %>
-    <small><%= message.created_at.strftime("%d/%m/%Y à %H:%M:%S") %></small>
-  </i>
-  <p><strong><%= message.user.nickname %></strong>: <%= message.content %></p>
-</div>
+<% if message.user == current_user %>
+  <div class="message-container-current" id="message-<%= message.id %>">
+    <i class="author">
+      <% if message.user.photo.attached? %>
+         <a href="#"><%= image_tag message.user.photo %></a>
+       <% end %>
+      <small><%= message.created_at.strftime("%d/%m/%Y à %H:%M:%S") %></small>
+    </i>
+    <p><strong><%= message.user.nickname %></strong>: <%= message.content %></p>
+  </div>
+<% else %>
+ <div class="message-container" id="message-<%= message.id %>">
+    <i class="author">
+      <% if message.user.photo.attached? %>
+         <a href="#"><%= image_tag message.user.photo %></a>
+       <% end %>
+      <small><%= message.created_at.strftime("%d/%m/%Y à %H:%M:%S") %></small>
+    </i>
+    <p><strong><%= message.user.nickname %></strong>: <%= message.content %></p>
+  </div>
+<% end %>

@@ -1,17 +1,43 @@
 #messages {
   background-color: hsla(244, 95%, 69%, 0.1);
   border-radius: 4px;
+  display: flex;
+  flex-direction: column;
+  overflow-y: auto;
+  height: 400px;
 }
 
 .message-container {
   // background-color: hsla(244, 95%, 69%, 0.1);
   padding: 20px;
+  // display: flex;
+  // justify-content: flex-end;
 
   p {
     display: inline-block;
     background-color: red;
     border-radius: 6px;
     padding: 5px;
+  }
+  small {
+    margin-right: 5px;
+  }
+}
+
+.message-container-current {
+  // background-color: hsla(244, 95%, 69%, 0.1);
+  padding: 20px;
+  display: flex;
+  justify-content: flex-end;
+
+  p {
+    display: inline-block;
+    background-color: red;
+    border-radius: 6px;
+    padding: 5px;
+  }
+  small {
+    margin-right: 5px;
   }
 }
 
