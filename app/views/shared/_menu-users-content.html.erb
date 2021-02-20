@@ -3,7 +3,7 @@
     <h2><%= current_user.nickname %></h2>
     <ul>
       <li><%= link_to "My Profile", user_path(current_user) %></li>
-      <li><%= link_to "Se déconnecter", destroy_user_session_path, method: :delete %></li>
+      <li><%= link_to "Disconnect", destroy_user_session_path, method: :delete %></li>
     </ul>
   <% end %>
 </div>
