@@ -17,7 +17,9 @@
       <% end %>
 
       <p><%= pluralize(event.bookings.where(status: "Booked").count, "participant", plural: "participants", locale: :fr) %>
-        <%= image_tag event.user.photo, class: "avatar-event", style: "right: 0px;", alt: "avatar-bordered" %>
+        <% if event.user.photo.attached? %>
+          <%= image_tag event.user.photo, class: "avatar-event", style: "right: 0px;", alt: "avatar-bordered" %>
+        <% end %>
       </p>
     </div>
   </div>
