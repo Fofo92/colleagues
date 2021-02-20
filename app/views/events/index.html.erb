@@ -13,7 +13,7 @@
     </div>
     <div>
       <%= select_tag :tag,
-      options_for_select(Event::EVENT_TYPES.sort), include_blank: true
+      options_for_select(Event::EVENT_TYPES.sort), prompt: "Or search by Category",  class: 'select2'
       %>
     </div>
   <%= submit_tag "Search", class: "btn btn-flat-primary" %>
