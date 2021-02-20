@@ -11,6 +11,7 @@ class MessagesController < ApplicationController
       @event,
       render_to_string(partial: "message", locals: { message: @message })
       )
+      redirect_to event_path(@event, anchor: "message-#{@message.id}")
     else
       render "events/show"
     end
