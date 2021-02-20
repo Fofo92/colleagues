@@ -47,11 +47,11 @@
 
 .menu-open {
   .body-container {
-    transform: translate3d(-40vw, 0, 0);
+    transform: translate3d(-20vw, 0, 0);
   }
 
   .menu-container {
-    transform: translate3d(calc(100% - 40vw), 0, 0);
+    transform: translate3d(calc(100% - 20vw), 0, 0);
   }
 }
 
