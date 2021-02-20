@@ -1,25 +1,24 @@
-<% @my_events.each do |my_event| %>
+<% @my_bookings.each do |my_booking| %>
   <div class="container card-product">
-    <%= cl_image_tag my_event.event.photos.any? ? my_event.event.photos.first.key : "https://res.cloudinary.com/drzg8kw0k/image/upload/v1611342995/4hux27613gnhmjimg612mls9chi0.jpg" %>
-    <div class="card-product-infos">
-      <%= my_event.event.name %>
-      <% if my_event.event.starts_at.strftime("%d/%m/%Y") == my_event.event.ends_at.strftime("%d/%m/%Y") %>
-        le <%= my_event.event.starts_at.strftime("%d/%m/%Y") %>
-      <% else %>
-        du <%= my_event.event.starts_at.strftime("%d/%m/%Y") %> au <%= my_event.event.ends_at.strftime("%d/%m/%Y") %>
+    <% if policy(my_booking.event).show? %>
+      <%= link_to event_path(my_booking.event), class: "text-reset text-decoration-none" do %>
+        <%= render "user_events_cards", event: my_booking.event %>
       <% end %>
-      <p><%= my_event.event.description %></p>
-    </div>
+    <% else %>
+      <%= render "user_events_cards", event: my_booking.event %>
+    <% end %>
+
+
     <div class="icon-zone">
       <ul class: "list-unstyled">
         <li class="media">
-          <% if policy(my_event.event).show? %>
-            <%= link_to event_path(my_event.event) do %><i class="fas fa-eye m-0"></i><% end %>
+          <% if policy(my_booking.event).show? %>
+            <%= link_to event_path(my_booking.event) do %><i class="fas fa-eye m-0"></i><% end %>
           <% end %>
         </li>
         <li class="media">
-          <% if policy(my_event.event).update? %>
-            <%= link_to booking_path(my_event), method: :patch do %><i class="fas fa-user-minus"></i><% end %>
+          <% if policy(my_booking.event).update? %>
+            <%= link_to booking_path(my_booking), method: :patch do %><i class="fas fa-user-minus"></i><% end %>
           <% end %>
         </li>
       </ul>

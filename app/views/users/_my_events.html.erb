@@ -1,15 +1,14 @@
 <% @user.events.each do |event| %>
   <div class="container card-product">
-    <%= cl_image_tag event.photos.any? ? event.photos.first.key : "https://res.cloudinary.com/drzg8kw0k/image/upload/v1611342995/4hux27613gnhmjimg612mls9chi0.jpg" %>
-    <div class="card-user-infos mt-2">
-      <%= event.name %>
-      <% if event.starts_at.strftime("%d/%m/%Y") == event.ends_at.strftime("%d/%m/%Y") %>
-        le <%= event.starts_at.strftime("%d/%m/%Y") %>
-      <% else %>
-        du <%= event.starts_at.strftime("%d/%m/%Y") %> au <%= event.ends_at.strftime("%d/%m/%Y") %>
+    <% if policy(event).show? %>
+      <%= link_to event_path(event), class: "text-reset text-decoration-none" do %>
+        <%= render "user_events_cards", event: event %>
       <% end %>
-      <p><%= event.description %></p>
-    </div>
+
+    <% else %>
+      <%= render "user_events_cards", event: event %>
+    <% end %>
+
     <div class="icon-zone">
       <ul class="list-unstyled">
         <li class="list-unstyled">
