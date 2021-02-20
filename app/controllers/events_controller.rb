@@ -31,7 +31,7 @@ class EventsController < ApplicationController
     authorize @event
     @event.user = current_user
     # @event.tag_list.add ()
-    @event.hobby_list = params[:event][:hobby_list].join(", ")
+       @event.hobby_list = params[:event][:hobby_list].join(", ") if params[:event][:hobby_list]
     @event.assign_attributes(event_params)
     if @event.valid?
       @event.save
