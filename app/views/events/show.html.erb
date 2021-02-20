@@ -21,7 +21,7 @@
       <p><strong>Event ending at</strong>: <%= @event.ends_at.strftime("%d/%m/%Y") %></p>
       <p><strong>Location</strong>: <%= @event.location %></p>
       <p><strong>Max. participants</strong>: <%= @event.max_booking %></p>
-      <p><strong>Participants</strong>: <%= @booking_count %></p>
+      <p><strong>Booked participants</strong>: <%= @booking_count %></p>
       <p><strong>Description</strong>: <%= @event.description %></p>
       <% if @booking %>
         <%= link_to "Cancel my booking", booking_path(@booking), method: :patch, class: 'btn btn-flat-primary btn-flat-cancel' %>
