@@ -1,9 +1,9 @@
 <div class="form-event">
   <%= simple_form_for @event do |f| %>
     <div class="form-inputs">
-      <%= f.input :name, label: "Name", placeholder: "Sortie à Paris", id:"form-title" %>
+      <%= f.input :name, label: "Name", placeholder: "Outing in Paris", id:"form-title" %>
       <%= f.input :description, as: :text, label: "Description",
-        placeholder: "Quoi de mieux pour relâcher la pression que de prendre 1 verre ou 2 entre collègues ;)" %>
+        placeholder: "What better way to take the pressure off than to have a drink with colleagues?" %>
       <%= f.input :location, label: "Location", placeholder: "5 Rue de la Huchette, 75005 Paris" %>
 
       <%= f.input :hobby_list, collection: Event::EVENT_TYPES.sort, input_html: { multiple: true, class: "tag-selector"},
@@ -14,7 +14,7 @@
       </div>
       <div class="input-line">
         <div id="mr15"><%= f.input :price, label: "Price", placeholder: "10€" %></div>
-        <%= f.input :max_booking, label: "Max Participants" %>
+        <%= f.input :max_booking, label: "Max. Participants" %>
       </div>
       <%= f.input :photos, as: :file, input_html: { class: "d-none input-photo", multiple: true }, label_html: { class: "upload-photo" }, remote: true %>
       <!-- To know the number of photos that have been uploaded  -->

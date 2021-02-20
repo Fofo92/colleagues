@@ -30,6 +30,8 @@ import { initMapbox } from "../plugins/init_mapbox";
 import { initAutocomplete } from '../plugins/init_autocomplete';
 import { photoCount } from '../plugins/photo_count';
 import { initEventCable } from '../channels/init_event_channel';
+import { initSelect2 } from '../components/init_select2';
+
 
 // Internal imports, e.g:
 // import { initSelect2 } from '../components/init_select2';
@@ -43,5 +45,6 @@ document.addEventListener('turbolinks:load', () => {
   initAutocomplete();
   initEventCable();
   photoCount();
+  initSelect2();
 
 });
