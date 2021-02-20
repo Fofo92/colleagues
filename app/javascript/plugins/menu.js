@@ -22,12 +22,14 @@
 //It works now!
 
 const initMenu = () => {
-  const buttonIn = document.querySelector('.navbar #toggle-in');
+  // const buttonIn = document.querySelector('.navbar #toggle-in');
   const dNoneEvent = document.querySelector('.navbar #toggle-d-none-event');
-  const dNoneUser = document.querySelector('.navbar #toggle-d-none-user');
+  const dNoneUser = document.querySelector('#toggle-d-none-user');
+  const dNoneUserAvatar = document.querySelector('.navbar #toggle-d-none-user-avatar');
   const menuContent = document.querySelector('.test');
   const menuEvent = document.querySelector('.menu-wrapper-event');
   const menuUser = document.querySelector('.menu-wrapper-user');
+  console.log(dNoneUserAvatar)
 
     // buttonIn.addEventListener('click', (event) => {
     //   event.preventDefault()
@@ -45,6 +47,12 @@ const initMenu = () => {
           menuContent.classList.toggle('menu-open')
           menuUser.classList.toggle('d-none')
         });
+
+    dNoneUserAvatar.addEventListener('click', (event) => {
+      event.preventDefault()
+      menuContent.classList.toggle('menu-open')
+      menuUser.classList.toggle('d-none')
+    });
 
 }
 

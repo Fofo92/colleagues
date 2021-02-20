@@ -4,10 +4,14 @@
   flex-direction: column;
   position: relative;
   top: 25vh;
-  left: 10vw;
+  left: 3vw;
+
 
     ul {
       list-style-type: none;
+      padding: 0;
+      padding-left: 10px;
+      margin-top: 20px;
     }
 
     li a {
@@ -21,10 +25,13 @@
   flex-direction: column;
   position: relative;
   top: 25vh;
-  left: 10vw;
+  left: 3vw;
 
     ul {
       list-style-type: none;
+      padding: 0;
+      padding-left: 10px;
+      margin-top: 20px;
     }
 
     li a {
