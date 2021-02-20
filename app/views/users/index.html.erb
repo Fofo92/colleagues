@@ -1,14 +1,16 @@
-<h1>Mes collègues</h1>
+<div class="coolleagues-index">
+  <h1>My Coolleagues</h1>
 
-<% @users.each do |user| %>
-  <div class="card-user">
-    <% if user.photo.attached? %>
-      <%= cl_image_tag user.photo.key %>
-    <% end %>
-    <div class="card-user-infos">
-      <h2><%= link_to user.nickname, user_path(user) %></h2>
-      <p><strong><%= user.first_name %> <%= user.last_name %></strong></p>
+  <% @users.each do |user| %>
+    <div class="card-user">
+      <% if user.photo.attached? %>
+        <%= cl_image_tag user.photo.key %>
+      <% end %>
+      <div class="card-user-infos">
+        <h2><%= link_to user.nickname, user_path(user) %></h2>
+        <p><strong><%= user.first_name %> <%= user.last_name %></strong></p>
+      </div>
     </div>
-  </div>
-<% end %>
+  <% end %>
+</div>
 

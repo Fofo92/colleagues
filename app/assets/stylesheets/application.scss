@@ -11,6 +11,7 @@
 @import "font-awesome";
 @import "flatpickr/dist/flatpickr";
 @import "mapbox-gl/dist/mapbox-gl";
+@import 'select2/dist/css/select2';
 
 // Your CSS partials
 @import "components/index";
@@ -18,3 +19,4 @@
 @import "pages/menu";
 @import "pages/chatroom";
 @import "pages/form-event";
+@import "pages/user-index";

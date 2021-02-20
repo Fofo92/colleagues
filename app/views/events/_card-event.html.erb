@@ -1,3 +1,4 @@
+<% @events = @all_events if @events.nil? %>
 <% @events.each do |event| %>
   <div class="card-event">
     <%= link_to event_path(event) do %>
@@ -19,7 +20,7 @@
 
       <p><%= pluralize(event.bookings.where(status: "Booked").count, "participant", plural: "participants", locale: :fr) %>
         <% if event.user.photo.attached? %>
-          <%= image_tag event.user.photo, class: "avatar-event", style: "right: 0px;", alt: "avatar-bordered" %>
+          <%= image_tag event.user.photo, class: "avatar-event", style: "left: 115px; top:-250px;", alt: "avatar-bordered" %>
         <% end %>
       </p>
     </div>
