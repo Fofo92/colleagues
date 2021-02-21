@@ -29,7 +29,6 @@ const initMenu = () => {
   const menuContent = document.querySelector('.test');
   const menuEvent = document.querySelector('.menu-wrapper-event');
   const menuUser = document.querySelector('.menu-wrapper-user');
-  console.log(dNoneUserAvatar)
 
     // buttonIn.addEventListener('click', (event) => {
     //   event.preventDefault()
