@@ -12,11 +12,6 @@
     <div class="icon-zone">
       <ul class: "list-unstyled">
         <li class="media">
-          <% if policy(my_booking.event).show? %>
-            <%= link_to event_path(my_booking.event) do %><i class="fas fa-eye m-0"></i><% end %>
-          <% end %>
-        </li>
-        <li class="media">
           <% if policy(my_booking.event).update? %>
             <%= link_to booking_path(my_booking), method: :patch do %><i class="fas fa-user-minus"></i><% end %>
           <% end %>
