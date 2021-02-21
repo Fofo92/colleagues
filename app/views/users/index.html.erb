@@ -8,11 +8,15 @@
             <%= cl_image_tag user.photo.key %>
           <% end %>
         <div class="card-user-infos">
-          <h2><%= link_to user.nickname, user_path(user) %></h2>
-          <p><strong><%= user.first_name %> <%= user.last_name %></strong></p>
-          <% user.hobby_list.each do |hobby| %>
-            <span class="tag-show-event"><%= hobby %></span>
-          <% end %>
+          <div id="flex-column">
+            <h2><%= link_to user.nickname, user_path(user) %></h2>
+            <p><strong><%= user.first_name %> <%= user.last_name %></strong></p>
+          </div>
+          <div id="flex-column", style="margin-left: 20px">
+            <% user.hobby_list.each do |hobby| %>
+              <span class="tag-show-event"><%= hobby %></span>
+            <% end %>
+          </div>
         </div>
       </div>
     <% end %>
