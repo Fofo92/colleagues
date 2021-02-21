@@ -1,16 +1,25 @@
-<h1>User <%= @user.nickname %></h1>
-<h2>My Hobbies</h2>
-<%= @user.hobby_list %>
+<div class="col-lg-10">
+  <h1>User <%= @user.nickname %></h1>
+  <div class="d-flex justify-content-between">
+    <h2>My Hobbies</h2>
+    <%= link_to 'Edit my profile', edit_user_registration_path, class: 'btn btn-flat-primary' %>
+  </div>
+  <% @user.hobby_list.each do |hobby| %>
+    <span class="tag-show-event"><%= hobby %></span>
+  <% end %>
 
-<h2>My organized events</h2>
-<div class="event-container">
-  <%= render "my_events" %>
-</div>
-<%= link_to 'Create an event', new_event_path, class: 'btn btn-flat-primary' %>
+  <div class="d-flex justify-content-between">
+    <h2>My organized events</h2>
+    <%= link_to 'Create an event', new_event_path, class: 'btn btn-flat-primary' %>
+  </div>
+  <div class="event-container">
+    <%= render "my_events" %>
+  </div>
 
-<h2>My booked events</h2>
-<div class="event-container">
-  <%= render "booked_events" %>
+  <h2>My booked events</h2>
+  <div class="event-container">
+    <%= render "booked_events" %>
+  </div>
 </div>
 
 
