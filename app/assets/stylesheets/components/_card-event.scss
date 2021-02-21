@@ -77,6 +77,7 @@
   height: 100%;
   width: 100px;
   object-fit: cover;
+  margin-right: 16px;
 }
 
 .card-product h2 {
@@ -91,14 +92,10 @@
   opacity: .7;
   margin-bottom: 0;
   margin-top: 8px;
+  margin-right: 40px;
 }
 
 .card-product .card-product-infos {
   padding: 16px;
 }
 
-// .event-container {
-//   display: flex;
-//   flex-wrap: wrap;
-//   justify-content: space-around;
-// }

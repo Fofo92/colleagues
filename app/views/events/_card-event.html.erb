@@ -1,3 +1,4 @@
+<% @events = @all_events if @events.nil? %>
 <% @events.each do |event| %>
   <div class="card-event">
     <%= link_to event_path(event) do %>

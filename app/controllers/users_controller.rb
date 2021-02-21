@@ -13,7 +13,7 @@ class UsersController < ApplicationController
   def show
     @user = User.find(params[:id])
     authorize @user
-    @my_events = @user.bookings.where(status: "Booked")
+    @my_bookings = @user.bookings.where(status: "Booked")
   end
 
   private
