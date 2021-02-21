@@ -11,7 +11,7 @@ class User < ApplicationRecord
   acts_as_taggable_on :hobbies
 
   include PgSearch::Model
-  pg_search_scope :search_by_first_name, against: [:first_name], using: { tsearch: { prefix: true } }
+  pg_search_scope :search_by_name, against: [:first_name, :nickname], using: { tsearch: { prefix: true } }
 
   def name_initials
     return "#{first_name[O, 1]}" << "#{last_name[0, 1]}"
