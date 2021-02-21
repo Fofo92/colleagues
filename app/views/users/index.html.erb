@@ -1,6 +1,19 @@
 <div class="coolleagues-index">
   <h1>My Coolleagues</h1>
 
+ <!-- Searchbar of users  -->
+<div class="searchbar-user">
+  <%= form_tag users_path, class: 'searchbar', method: :get do %>
+    <div>
+      <%= text_field_tag :query,
+        params[:query],
+        class: "form-control",
+        placeholder: "Find a Coolleagues" %>
+    </div>
+    <%= submit_tag "Search", class: "btn btn-flat-primary" %>
+  <% end %>
+</div>
+
   <% @users.each do |user| %>
     <%= link_to user_path(user) do %>
       <div class="card-user">

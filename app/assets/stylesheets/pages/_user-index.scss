@@ -55,8 +55,14 @@ h1 {
     }
 }
 
-// #flex-row {
-//   display: flex;
-//   flex-direction: row;
-//   flex-wrap: wrap;
-// }
+.searchbar-user {
+    margin-top: 20px;
+    margin-bottom: 40px;
+      .form-control {
+        border-radius: 8px;
+        padding: 6px 16px;
+      }
+      .btn {
+        margin-left: 6px;
+      }
+}

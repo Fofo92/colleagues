@@ -4,6 +4,9 @@ class UsersController < ApplicationController
 
   def index
     @users = User.all
+    if params[:query].present?
+      @users = @users.search_by_first_name(params[:query])
+    end
     authorize @users
   end
 
