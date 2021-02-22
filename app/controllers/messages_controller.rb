@@ -1,4 +1,8 @@
 class MessagesController < ApplicationController
+  def index
+    @message = Message.all
+  end
+
   def create
     @event = Event.find(params[:event_id])
     @message = Message.new(message_params)

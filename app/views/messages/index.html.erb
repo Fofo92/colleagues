@@ -1,0 +1,17 @@
+<div class="page-wrapper">
+  <div class="user-list">
+    <div id="mt">
+      <% User.all.each do |user| %>
+        <% if user.photo.attached? %>
+          <div class="flex-column">
+            <%= cl_image_tag user.photo.key %>
+            <%= user.first_name %>
+          </div>
+        <% end %>
+      <% end %>
+    </div>
+  </div>
+  <div class="messages-container">
+
+  </div>
+</div>
