@@ -4,13 +4,16 @@ class UsersController < ApplicationController
 
   def index
     @users = User.all
+    if params[:query].present?
+      @users = @users.search_by_name(params[:query])
+    end
     authorize @users
   end
 
   def show
     @user = User.find(params[:id])
     authorize @user
-    @my_events = @user.bookings.where(status: "Booked")
+    @my_bookings = @user.bookings.where(status: "Booked")
   end
 
   private

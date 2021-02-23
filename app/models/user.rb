@@ -10,6 +10,9 @@ class User < ApplicationRecord
   has_one_attached :photo
   acts_as_taggable_on :hobbies
 
+  include PgSearch::Model
+  pg_search_scope :search_by_name, against: [:first_name, :nickname], using: { tsearch: { prefix: true } }
+
   def name_initials
     return "#{first_name[O, 1]}" << "#{last_name[0, 1]}"
   end
