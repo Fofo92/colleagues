@@ -1,7 +1,7 @@
 <div class="page-wrapper">
   <div class="user-list">
     <div id="mt">
-      <% User.all.where.not(id: current_user).each do |user| %>
+      <% @except_current.each do |user| %>
         <% if user.photo.attached? %>
           <div class="flex-column">
             <%= cl_image_tag user.photo.key %>
@@ -12,6 +12,12 @@
     </div>
   </div>
   <div class="messages-container">
-
+    <div class="chatroom">
+      <p>bonjour</p>
+    </div>
+    <div class="form">
+      <!-- Add message form here -->
+      <p>Form Here</p>
+    </div>
   </div>
 </div>
