@@ -16,4 +16,12 @@ class User < ApplicationRecord
   def name_initials
     return "#{first_name[O, 1]}" << "#{last_name[0, 1]}"
   end
+
+  def days_before_next_event
+    next_event = []
+    self.events.each do |event|
+      next_event << ((event.starts_at - Time.now)/86400).to_i
+      return next_event.min
+    end
+  end
 end
