@@ -52,11 +52,11 @@
       <%= link_to 'Create an event', new_event_path, class: 'btn btn-flat-primary btn-sm' %>
     <% end %>
   </div>
-  <div class="event-container">
+  <div class="event-container" style="box-shadow: 0 0 15px rgba(0,0,0,0.2);">
     <%= render "my_events" %>
   </div>
   <h2><%= @user == current_user ? 'My booked events' : 'Booked events' %></h2>
-  <div class="event-container">
+  <div class="event-container" style="box-shadow: 0 0 15px rgba(0,0,0,0.2);">
     <%= render "booked_events" %>
   </div>
 </div>
