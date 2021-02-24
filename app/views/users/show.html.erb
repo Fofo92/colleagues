@@ -1,5 +1,48 @@
+<!-- NEW DESIGN // TO INTEGRATE CONTENT INSIDE -->
+
+<div style=" padding: 8% 100px 7%; text-align:center;" class="content-space">
+  <h1>Good afternoon <%= @user.first_name.capitalize %> !</h1>
+  <p>You organize your next event in X days.</p>
+  <p>You participate to X events.</p>
+</div>
+
+<!-- SECTION INFORMATION -->
+
+<div class="content-space d-flex justify-content-around" style=" padding: 0% 100px 3%;">
+  <div class="d-flex" style="flex-direction:column;">
+    <h2>Informations</h2>
+      <span><strong>Name</strong>: <%= @user.first_name.capitalize %> <%= @user.last_name.capitalize %></span>
+      <span><strong>Nickname</strong>: <%= @user.nickname %></span>
+      <span><strong>Team</strong>: Marketing</span>
+      <span><strong>Arrival Date</strong>: 27/01/2021 (1 month)</span>
+  </div>
+
+  <div class="d-flex" style="flex-direction:column; text-align:center;">
+    <div class="image">
+      <% if current_user.photo.attached? %>
+         <%= image_tag current_user.photo, style: "width: 100px; height: auto", class: "avatar dropdown-toggle", id: "navbarDropdown", data: { toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>
+      <% end %>
+    </div>
+
+    <div class="d-flex justify-content-around mt-2">
+      <i class="fab fa-linkedin-in" style="size:7px;"></i>
+      <i class="fas fa-envelope" style="size:7px;"></i>
+    </div>
+
+  </div>
+
+
+
+
+</div>
+<br>
+<span><strong>Bio:</strong></span>
+
+
+<!-- OLD DESIGN // CONTAIN ALL THE CONTENT TO ADD UP -->
+
 <div class="col-lg-10">
-  <h1>User <%= @user.nickname %></h1>
+  <h1>Good Afternoon <%= @user.nickname %></h1>
   <div class="d-flex justify-content-between">
     <h2>My Hobbies</h2>
     <%= link_to 'Edit my profile', edit_user_registration_path, class: 'btn btn-flat-primary' %>
@@ -15,11 +58,8 @@
   <div class="event-container">
     <%= render "my_events" %>
   </div>
-
   <h2>My booked events</h2>
   <div class="event-container">
     <%= render "booked_events" %>
   </div>
 </div>
-
-
