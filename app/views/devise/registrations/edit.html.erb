@@ -12,6 +12,9 @@
                     required: true,
                     placeholder: "Bond" %>
         <%= f.input :nickname, required: true, placeholder: "JB-007" %>
+        <%= f.input :team, required: true, placeholder: "Development team" %>
+        <%= f.input :joined_at, as: :string, required: true, label: "Date d'arrivée dans l'entreprise", input_html: { class: "datepicker" } %>
+        <%= f.input :bio %>
         <%= f.input :hobby_list, collection: Event::EVENT_TYPES.sort, input_html: { multiple: true, class: "tag-selector"},
               as: :check_boxes, item_wrapper_class: 'tag-item', include_hidden: false  %>
         <%= f.input :photo, as: :file %>

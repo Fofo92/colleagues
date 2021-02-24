@@ -18,7 +18,6 @@ class EventsController < ApplicationController
     @booking = Booking.find_by(user: current_user, event: @event, status: "Booked")
     @booking_count = Booking.where(event: @event, status: "Booked").size
     @message = Message.new
-
     @markers = [{ lat: @event.latitude, lng: @event.longitude }]
   end
 
