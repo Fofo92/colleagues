@@ -13,7 +13,7 @@
       <span><strong>Team</strong>: <%= @user.team %></span>
       <span><strong>Arrival Date</strong>: <%= @user.joined_at %></span>
       <span><strong>Bio</strong>: <%= @user.bio %></span>
-      <span><strong>Next organized event in</strong>: <%= pluralize(@user.days_before_next_event, 'day') %>.</span>
+      <span><strong>Next organized event in</strong>: <%= @user.days_before_next_event.blank? ? 'No event organized' : pluralize(@user.days_before_next_event, 'day') %>.</span>
       <span><strong>Booked for</strong>: <%=pluralize(@user.events.count, 'event') %>.</span>
   </div>
 
