@@ -1,21 +1,29 @@
 <!-- NEW DESIGN // TO INTEGRATE CONTENT INSIDE -->
 
-<div style="padding: 8% 100px 7%; text-align:center;" class="content-space">
+<div style="padding: 8% 100px 1%; text-align:center; " class="content-space d-profile-color">
   <h1>Detailed information on <%= @user.first_name.capitalize %> !</h1>
 </div>
 
 <!-- SECTION INFORMATION -->
 
-<div class="content-space d-flex justify-content-around" style="padding: 0% 100px 3%;">
+<div class="content-space d-flex justify-content-around d-profile-color" style="padding: 4% 100px 0;">
   <div class="d-flex" style="flex-direction:column;">
       <span><strong>Name</strong>: <%= @user.first_name.capitalize %> <%= @user.last_name.capitalize %></span>
       <span><strong>Nickname</strong>: <%= @user.nickname %></span>
       <span><strong>Team</strong>: <%= @user.team %></span>
       <span><strong>Arrival Date</strong>: <%= @user.joined_at %></span>
-      <span><strong>Bio</strong>: <%= @user.bio %></span>
       <span><strong>Next organized event in</strong>: <%= @user.days_before_next_event.blank? ? 'No event organized' : pluralize(@user.days_before_next_event, 'day') %>.</span>
       <span><strong>Booked for</strong>: <%=pluralize(@user.events.count, 'event') %>.</span>
+      <span>
+        <strong>Hobbies</strong>:
+          <% @user.hobby_list.each do |hobby| %>
+            <span class="tag-show-event"><%= hobby %></span>
+          <% end %>
+      </span>
+      <span class="mt-2"><strong>Bio</strong>:</span>
   </div>
+
+<!-- PHOTO -->
 
   <div class="d-flex" style="flex-direction:column; text-align:center;">
     <div class="image">
@@ -31,7 +39,18 @@
 
   </div>
 </div>
-<br>
+<!-- BIO -->
+<div class="d-flex d-profile-color" style="flex-direction:column; z-index:0;">
+  <div class="content-space d-flex bio" style="margin: 0% 275px 3%; padding: 10px 50px 10px 3px; z-index:1;">
+    <%= @user.bio %>
+  </div>
+</div>
+
+
+
+
+
+
 
 <!-- OLD DESIGN // CONTAIN ALL THE CONTENT TO ADD UP -->
 
