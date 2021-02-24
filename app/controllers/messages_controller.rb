@@ -1,4 +1,9 @@
 class MessagesController < ApplicationController
+  def index
+    @messages = Message.all
+    @except_current = except_current
+  end
+
   def create
     @event = Event.find(params[:event_id])
     @message = Message.new(message_params)
@@ -18,6 +23,10 @@ class MessagesController < ApplicationController
   end
 
   private
+
+  def except_current
+    User.all.where.not(id: current_user)
+  end
 
   def message_params
     params.require(:message).permit(:event_id, :user_id, :content)
