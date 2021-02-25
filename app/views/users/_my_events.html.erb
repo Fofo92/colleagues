@@ -1,5 +1,5 @@
 <% @user.events.each do |event| %>
-  <div class="container card-product">
+  <div class="container card-product card-container">
     <% if policy(event).show? %>
       <%= link_to event_path(event), class: "text-reset text-decoration-none" do %>
         <%= render "user_events_cards", event: event %>
@@ -21,7 +21,7 @@
         <li class="list-unstyled">
           <% if policy(event).destroy? %>
             <%= link_to event_path(event), method: :delete, data: {confirm: "Êtes vous sûr ?"} do %>
-              <i class="fas fa-trash-alt list-inline-item"></i>
+              <i class="fas fa-trash-alt list-inline-item" style="color:tomato;"></i>
             <% end %>
           <% end %>
         </li>
