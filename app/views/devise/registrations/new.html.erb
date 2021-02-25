@@ -10,6 +10,7 @@
         <div id="mr15">
           <%= f.input :first_name,
                       required: true,
+                      autofocus: true,
                       placeholder: "James"  %>
         </div>
           <%= f.input :last_name,
@@ -29,7 +30,6 @@
       <%= f.input :photo, as: :file, input_html: { class: "d-none input-photo" }, label_html: { class: "upload-photo" } %>
       <%= f.input :email,
                   required: true,
-                  autofocus: true,
                   input_html: { autocomplete: "email" }%>
       <div class="input-line">
         <div id="mr15">
