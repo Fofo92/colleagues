@@ -23,3 +23,12 @@
 .nav-link:hover {
   color: #C3EBEF !important;
 }
+
+#search-event {
+  .form-control {
+    border-radius: 8px 0px 0px 8px;
+  }
+  .btn-flat-primary {
+    border-radius: 0px 8px 8px 0px;
+  }
+}

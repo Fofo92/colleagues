@@ -13,7 +13,6 @@ h1 {
 
 .card-user {
   padding: 16px;
-  width: 60%;
   border-radius: 15px;
   overflow: hidden;
   height: 120px;
@@ -21,11 +20,17 @@ h1 {
   box-shadow: 0 0 15px hsla(244, 95%, 69%, 0.4);
   display: flex;
   align-items: center;
-  margin-bottom: 15px;
+  margin-top: 30px;
+  flex-direction: column;
+  height: 160px;
 
   img {
     border-radius: 50%;
     width: 90px;
+  }
+
+  h2 {
+    font-size: 24px;
   }
 
   &:hover {
@@ -34,7 +39,6 @@ h1 {
     // height: 160px;
     transform: scale(1.1);
   }
-
 }
 
 .card-user-infos {
@@ -42,28 +46,49 @@ h1 {
   flex-direction: row;
   width: 100%;
   align-items: center;
+  margin-left: 16px;
+
 }
 
-#flex-column {
+#flex-row-tag {
   display: flex;
-  flex-direction: column;
+  margin-top: auto;
     .tag-show-event {
       text-align: center;
     }
 
     span {
-      margin-bottom: 5px;
+      margin-left: 5px;
     }
 }
 
+#flex-row {
+ display: flex;
+ // flex-wrap: wrap;
+ // flex-direction: row;
+}
+
 .searchbar-user {
-    margin-top: 20px;
-    margin-bottom: 40px;
+    margin-top: 70px;
+    margin-bottom: 80px;
       .form-control {
-        border-radius: 8px;
+        border-radius: 8px 0px 0px 8px;
         padding: 6px 16px;
+        height: 40px;
       }
-      .btn {
-        margin-left: 6px;
-      }
+}
+.container {
+  .btn-flat-primary {
+    border-radius: 0px 8px 8px 0px;
+  }
+}
+
+.user-wrapper {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+    a {
+      width: 31%;
+      text-decoration: none;
+    }
 }

@@ -1,38 +1,43 @@
 <div class="coolleagues-index">
-  <h1>My Coolleagues</h1>
+  <div class="container">
+    <h1>My Coolleagues</h1>
 
- <!-- Searchbar of users  -->
-<div class="searchbar-user">
-  <%= form_tag users_path, class: 'searchbar', method: :get do %>
-    <div>
-      <%= text_field_tag :query,
-        params[:query],
-        class: "form-control",
-        placeholder: "Find a Coolleagues" %>
-    </div>
-    <%= submit_tag "Search", class: "btn btn-flat-primary" %>
-  <% end %>
-</div>
-
-  <% @users.where.not(id: current_user).each do |user| %>
-    <%= link_to user_path(user) do %>
-      <div class="card-user">
-          <% if user.photo.attached? %>
-            <%= cl_image_tag user.photo.key %>
-          <% end %>
-        <div class="card-user-infos">
-          <div id="flex-column">
-            <h2><%= link_to user.nickname, user_path(user) %></h2>
-            <p><strong><%= user.first_name %> <%= user.last_name %></strong></p>
-          </div>
-          <div id="flex-column", style="margin-left: 20px">
-            <% user.hobby_list.each do |hobby| %>
-              <span class="tag-show-event"><%= hobby %></span>
-            <% end %>
-          </div>
+   <!-- Searchbar of users  -->
+    <div class="searchbar-user">
+      <%= form_tag users_path, class: 'searchbar', method: :get do %>
+        <div>
+          <%= text_field_tag :query,
+            params[:query],
+            class: "form-control",
+            placeholder: "Find a Coolleagues" %>
         </div>
-      </div>
-    <% end %>
-  <% end %>
+        <%= submit_tag "Search", class: "btn btn-flat-primary" %>
+      <% end %>
+    </div>
+    <div class="user-wrapper">
+      <% @users.where.not(id: current_user).each do |user| %>
+        <%= link_to user_path(user) do %>
+          <div class="card-user">
+            <div id="flex-row">
+              <% if user.photo.attached? %>
+                <%= cl_image_tag user.photo.key %>
+              <% end %>
+              <div class="card-user-infos">
+                <div id="flex-column">
+                  <h2><%= user.nickname %></h2>
+                  <p><strong><%= user.first_name %> <%= user.last_name %></strong></p>
+                </div>
+              </div>
+            </div>
+              <div id="flex-row-tag", style="margin-left: 20px">
+                <% user.hobby_list.each do |hobby| %>
+                  <span class="tag-show-event"><%= hobby %></span>
+                <% end %>
+            </div>
+          </div>
+        <% end %>
+      <% end %>
+    </div>
+  </div>
 </div>
 
