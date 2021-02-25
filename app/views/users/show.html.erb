@@ -1,12 +1,16 @@
 <!-- NEW DESIGN // TO INTEGRATE CONTENT INSIDE -->
 
 <div style="padding: 8% 100px 1%; text-align:center; " class="content-space d-profile-color">
-  <h1>Detailed information on <%= @user.first_name.capitalize %> !</h1>
+  <% if @user == current_user %>
+    <h1>Good afternoon <%= @user.first_name.capitalize %> !</h1>
+  <% else %>
+    <h1>Detailed informations on <%= @user.first_name.capitalize %> !</h1>
+  <% end %>
 </div>
 
 <!-- SECTION INFORMATION -->
 
-<div class="content-space d-flex justify-content-around d-profile-color" style="padding: 4% 100px 0;">
+<div class="content-space d-flex justify-content-around d-profile-color" style="padding: 4% 100px;">
   <div class="d-flex" style="flex-direction:column;">
       <span><strong>Name</strong>: <%= @user.first_name.capitalize %> <%= @user.last_name.capitalize %></span>
       <span><strong>Nickname</strong>: <%= @user.nickname %></span>
@@ -20,7 +24,7 @@
             <span class="tag-show-event"><%= hobby %></span>
           <% end %>
       </span>
-      <span class="mt-2"><strong>Bio</strong>:</span>
+      <span class="mt-2"><strong>Bio</strong>: <%= @user.bio %></span>
   </div>
 
 <!-- PHOTO -->
@@ -45,75 +49,27 @@
 
   </div>
 </div>
-<!-- BIO -->
-<div class="d-flex d-profile-color" style="flex-direction:column; z-index:0;">
-  <div class="content-space d-flex bio">
-    <%= @user.bio %>
-  </div>
-</div>
-
 
 
 <!-- EVENT SECTION -->
 
-
-
-
-<div class="d-flex justify-content-center mt-2">
+<div class="d-flex justify-content-center pt-5" style="background:white;">
   <h2><%= @user == current_user ? 'My Events' : 'Events' %> </h2>
 </div>
 
-<div class="content-space">
+<div class="content-space" style="background:white;">
+  <div class="d-flex justify-content-between">
+    <h3 class="mr-3"><%= @user == current_user ? 'Organized Events' : 'Organized Events' %></h3>
+    <% if @user == current_user %>
+      <%= link_to 'Create an event', new_event_path, class: 'btn btn-flat-primary btn-sm' %>
+    <% end %>
+  </div>
+    <%= render "my_events" %>
+</div>
+
+<div class="content-space" style="background-color: #f5f5ff;">
   <div class="d-flex">
-    <h2><%= @user == current_user ? 'Events you organize' : 'Organized events' %></h2>
-    <% if @user == current_user %>
-      <%= link_to 'Create an event', new_event_path, class: 'btn btn-flat-primary btn-sm' %>
-    <% end %>
+    <h3><%= @user == current_user ? 'Your Booked Events' : 'Booked Events' %></h3>
   </div>
-    <%= render "my_events" %>
-</div>
-
-
-
-<div class="event-container" style="box-shadow: 0 0 15px rgba(0,0,0,0.2);">
-  <%= render "my_events" %>
-</div>
-
-
-
-<h2><%= @user == current_user ? 'My booked events' : 'Booked events' %></h2>
-<div class="event-container" style="box-shadow: 0 0 15px rgba(0,0,0,0.2);">
-  <%= render "booked_events" %>
-</div>
-
-
-
-
-
-<!-- OLD DESIGN // CONTAIN ALL THE CONTENT TO ADD UP -->
-
-<div class="col-lg-10">
-  <div class="d-flex justify-content-between mb-2">
-    <h2><%= @user == current_user ? 'My Hobbies' : 'Hobbies' %> </h2>
-    <% if @user == current_user %>
-      <%= link_to 'Edit my profile', edit_user_registration_path, class: 'btn btn-flat-primary btn-sm' %>
-     <% end %>
-  </div>
-  <% @user.hobby_list.each do |hobby| %>
-    <span class="tag-show-event"><%= hobby %></span>
-  <% end %>
-
-  <div class="d-flex justify-content-between mt-2">
-    <h2><%= @user == current_user ? 'My organized events' : 'Organized events' %></h2>
-    <% if @user == current_user %>
-      <%= link_to 'Create an event', new_event_path, class: 'btn btn-flat-primary btn-sm' %>
-    <% end %>
-  </div>
-  <div class="event-container" style="box-shadow: 0 0 15px rgba(0,0,0,0.2);">
-    <%= render "my_events" %>
-  </div>
-  <h2><%= @user == current_user ? 'My booked events' : 'Booked events' %></h2>
-  <div class="event-container" style="box-shadow: 0 0 15px rgba(0,0,0,0.2);">
     <%= render "booked_events" %>
-  </div>
 </div>
