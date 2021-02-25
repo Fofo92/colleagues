@@ -20,7 +20,7 @@
           <div class="card-user">
             <div id="flex-row">
               <% if user.photo.attached? %>
-                <%= cl_image_tag user.photo.key %>
+                <%= cl_image_tag user.photo.key, crop: :fill %>
               <% end %>
               <div class="card-user-infos">
                 <div id="flex-column">
