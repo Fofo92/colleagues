@@ -21,7 +21,7 @@ class User < ApplicationRecord
     next_event = []
     self.events.each do |event|
       next_event << ((event.starts_at - Time.now)/86400).to_i
+      return next_event.min
     end
-    return next_event.min
   end
 end
