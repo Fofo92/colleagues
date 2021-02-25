@@ -1,7 +1,6 @@
 <!-- NEW DESIGN // TO INTEGRATE CONTENT INSIDE -->
 
 <div style="padding: 8% 100px 1%; text-align:center; " class="content-space d-profile-color">
-<h2><%= @user == current_user ? 'My Hobbies' : 'Hobbies' %> </h2>
   <h1>Detailed information on <%= @user.first_name.capitalize %> !</h1>
 </div>
 
@@ -28,7 +27,7 @@
 
   <div class="d-flex" style="flex-direction:column; text-align:center;">
     <div class="image">
-      <% if current_user.photo.attached? %>
+      <% if @user.photo.attached? %>
          <%= image_tag @user.photo, style: "width: 100px; height: auto", class: "avatar dropdown-toggle", id: "navbarDropdown", data: { toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>
       <% end %>
     </div>
