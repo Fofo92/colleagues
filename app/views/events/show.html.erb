@@ -10,8 +10,10 @@
       <p style="font-weight: bold; font-size: 20px" ><%= @event.name %></p>
       <p>
         <strong>Organizer</strong>: <%= @event.user.nickname %>
-          <% if current_user.photo.attached? %>
-             <%= image_tag @event.user.photo, class: "avatar dropdown-toggle", id: "navbarDropdown", data: { toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>
+          <% if @event.user.photo.attached? %>
+            <%= link_to user_path(@event.user) do %>
+              <%= image_tag @event.user.photo, class: "avatar dropdown-toggle", id: "navbarDropdown", data: { toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>
+            <% end %>
           <% end %>
       </p>
       <p><strong>Event <%= "category".pluralize(@event.hobby_list.count) %> <i class="far fa-object-group"></i></strong>:
@@ -33,21 +35,23 @@
         <% @event.bookings.where(status: "Booked").each do |booked_user| %>
           <% if booked_user.user.photo.attached? %>
           <!-- changer le path pour amener vers la show du user -->
-            <!-- <%= link_to user_path do %> -->
+            <%= link_to user_path(booked_user) do %>
               <%= image_tag booked_user.user.photo, class: "avatar-event", alt: "avatar-bordered" %>
-            <!-- <% end %> -->
+            <% end %>
           <% end %>
         <% end %>
       </div>
       <p><strong>Description</strong>: <%= @event.description %></p>
-      <% if @booking %>
-        <%= link_to "Cancel my booking", booking_path(@booking), method: :patch, class: 'btn btn-flat-primary btn-flat-cancel' %>
-      <% else  %>
-        <%= link_to "Book", event_bookings_path(@event), method: :post, class: 'btn btn-flat-primary' %>
-      <% end %>
-      <% if policy(@event).update? %>
-        <%= link_to "Update this event", edit_event_path(@event), class: 'btn btn-ghost-primary' %>
-      <% end %>
+      <div>
+        <% if @booking %>
+          <%= link_to "Cancel my booking", booking_path(@booking), method: :patch, class: 'btn btn-flat-primary btn-flat-cancel' %>
+        <% else  %>
+          <%= link_to "Book", event_bookings_path(@event), method: :post, class: 'btn btn-flat-primary' %>
+        <% end %>
+        <% if policy(@event).update? %>
+          <%= link_to "Update this event", edit_event_path(@event), class: 'btn btn-ghost-primary' %>
+        <% end %>
+      </div>
     </div>
   </div>
   <div class="">
