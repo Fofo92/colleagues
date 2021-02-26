@@ -1,20 +1,31 @@
 
 
-.flex-row {
-  display: flex;
-  flex-direction: row;
-}
+// .flex-row {
+//   display: flex;
+//   flex-direction: row;
+// }
 
-.flex-col {
-  display: flex;
-  flex-direction: column;
-}
+// .flex-col {
+//   display: flex;
+//   flex-direction: column;
+// }
 
-.back-home {
-  display: flex;
-  margin: 40px 0 -20px;
-}
+// .back-home {
+//   display: flex;
+//   margin: 40px 0 -20px;
+// }
 
+.booked-user-container {
+    display: flex;
+    flex-direction: row;
+    overflow-y: auto;
+    width: 100%;
+
+      .avatar-event {
+        position: initial;
+        margin-right: 6px;
+      }
+}
 
 
 // Alexis
