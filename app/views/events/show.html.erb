@@ -29,6 +29,16 @@
       </p>
       <p><strong>Location</strong> <i class="fas fa-globe-europe"></i>: <%= @event.location %></p>
       <p><strong>Participants</strong> <i class="fas fa-users"></i>: <%= @booking_count %> / <%= @event.max_booking %> (booked / max.)</p>
+      <div class="booked-user-container">
+        <% @event.bookings.where(status: "Booked").each do |booked_user| %>
+          <% if booked_user.user.photo.attached? %>
+          <!-- changer le path pour amener vers la show du user -->
+            <!-- <%= link_to user_path do %> -->
+              <%= image_tag booked_user.user.photo, class: "avatar-event", alt: "avatar-bordered" %>
+            <!-- <% end %> -->
+          <% end %>
+        <% end %>
+      </div>
       <p><strong>Description</strong>: <%= @event.description %></p>
       <% if @booking %>
         <%= link_to "Cancel my booking", booking_path(@booking), method: :patch, class: 'btn btn-flat-primary btn-flat-cancel' %>
