@@ -7,8 +7,10 @@
       <h1>Get Integrated.</h1>
       <h2>Discover People & Events within your company that correspond to YOUR interests.</h2>
       <br>
-      <%= link_to "Sign Up", new_user_registration_path, class: "btn btn-flat-primary" %>
-      <%= link_to "Sign In", user_session_path, class: "btn btn-ghost-primary" %>
+      <% unless user_signed_in? %>
+        <%= link_to "Sign Up", new_user_registration_path, class: "btn btn-flat-primary" %>
+        <%= link_to "Sign In", user_session_path, class: "btn btn-ghost-primary" %>
+      <% end %>
     </div>
     <div class="home-img-logo">
       <%= image_tag("http://res.cloudinary.com/fofo921/image/upload/v1613229424/wlqshqdfbwq9ellelmjg.jpg", class: "img_home") %>
@@ -54,7 +56,11 @@
     <h2> Let's meet your coolleagues right now !</h2>
     <h3>What are you waiting for ?</h3>
     <div>
-      <%= link_to "Browse All Events", events_path, class: "mt-3 btn btn-flat-primary", style: "width: 220px; padding: 15px" %>
+      <% unless user_signed_in? %>
+          <%= link_to "Join Us", events_path, class: "mt-3 btn btn-flat-primary", style: "width: 220px; padding: 15px" %>
+        <% else %>
+          <%= link_to "Discover Our Events", events_path, class: "mt-3 btn btn-flat-primary", style: "width: 220px; padding: 15px" %>
+      <% end %>
     </div>
   </div>
 
