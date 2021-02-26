@@ -11,7 +11,7 @@
     <div class="minus-icon-container">
       <ul class="minus-icon">
         <li class="media">
-          <% if policy(my_booking.event).update? %>
+          <% if my_booking.user == current_user %>
             <%= link_to booking_path(my_booking), method: :patch do %><i class="fas fa-user-minus" style="color:tomato; z-index:3;"></i><% end %>
           <% end %>
         </li>
