@@ -2,7 +2,7 @@
 
 <!-- Section 1 -->
 
-  <div class="home-section">
+  <div class="home-section" style="padding:4% 5% 0">
     <div class="home-presentation" >
       <h1>Get Integrated.</h1>
       <h2>Discover People & Events within your company that correspond to YOUR interests.</h2>
@@ -15,9 +15,7 @@
     </div>
   </div>
 
-  <br>
-
-<!-- Section 2 -->
+<hr>
 
   <h1 class="home-section">Know your coolleagues.</h1>
   <div class="feature-presentation">
@@ -41,10 +39,10 @@
 
   </div>
 
-<!-- Section 3 -->
+<hr>
 
   <h1 class="home-section">They trust us.</h1>
-  <div class="feature-presentation" >
+  <div class="feature-presentation" style="padding:4% 5% 4% 5px;" >
       <%= image_tag("http://res.cloudinary.com/fofo921/image/upload/v1613229486/upe1bbf1waccqrpirvs1.png", class: "logo-brand") %>
       <%= image_tag("http://res.cloudinary.com/fofo921/image/upload/v1613229496/uqvdaqt2auswfm6ccxca.png", class: "logo-brand") %>
       <%= image_tag("http://res.cloudinary.com/fofo921/image/upload/v1613229505/g2btd1siv1e5owvpwfa4.png", class: "logo-brand") %>
@@ -52,10 +50,12 @@
       <%= image_tag("http://res.cloudinary.com/fofo921/image/upload/v1613229515/iyewfky2lq1yzgjkeqh5.png", class: "logo-brand") %>
   </div>
 
-</div>
+  <div class="d-flex justify-content-around mt-5 pt-5" style="flex-direction:column; text-align:center;">
+    <h2> Let's meet your coolleagues right now !</h2>
+    <h3>What are you waiting for ?</h3>
+    <div>
+      <%= link_to "Browse All Events", events_path, class: "mt-3 btn btn-flat-primary", style: "width: 220px; padding: 15px" %>
+    </div>
+  </div>
 
-<!-- <div class="menu-container">
-<div class="menu-container-content d-none">
-  <h2>menu</h2>
 </div>
-</div> -->
