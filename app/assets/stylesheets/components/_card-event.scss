@@ -117,3 +117,13 @@
 .card-container {
   border: 1px solid lightgrey ;
 }
+
+.minus-icon-container {
+  position: relative;
+}
+
+.minus-icon {
+  position: absolute;
+  right: 20px;
+  bottom: 40px;
+}
