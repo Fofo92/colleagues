@@ -2,7 +2,7 @@
 
 <div style="padding: 8% 100px 1%; text-align:center; " class="content-space d-profile-color">
   <% if @user == current_user %>
-    <h1>Good afternoon <%= @user.first_name.capitalize %> !</h1>
+    <h1>Good afternoon <%= @user.first_name %> !</h1>
   <% else %>
     <h1>Detailed informations on <%= @user.first_name.capitalize %> !</h1>
   <% end %>
@@ -12,19 +12,19 @@
 
 <div class="content-space d-flex justify-content-around d-profile-color" style="padding: 4% 100px;">
   <div class="d-flex" style="flex-direction:column;">
-      <span><strong>Name</strong>: <%= @user.first_name.capitalize %> <%= @user.last_name.capitalize %></span>
-      <span><strong>Nickname</strong>: <%= @user.nickname %></span>
-      <span><strong>Team</strong>: <%= @user.team %></span>
-      <span><strong>Arrival Date</strong>: <%= @user.joined_at %></span>
-      <span><strong>Next organized event in</strong>: <%= @user.days_before_next_event.blank? ? 'No event organized' : pluralize(@user.days_before_next_event, 'day') %>.</span>
-      <span><strong>Booked for</strong>: <%=pluralize(@user.events.count, 'event') %>.</span>
-      <span>
+      <span class="info-show"><strong>Name</strong>: <%= @user.first_name.capitalize %> <%= @user.last_name.capitalize %></span>
+      <span class="info-show"><strong>Nickname</strong>: <%= @user.nickname %></span>
+      <span class="info-show"><strong>Team</strong>: <%= @user.team %></span>
+      <span class="info-show"><strong>Arrival Date</strong>: <%= @user.joined_at %></span>
+      <span class="info-show"><strong>Next organized event in</strong>: <%= @user.days_before_next_event.blank? ? 'No event organized' : pluralize(@user.days_before_next_event, 'day') %>.</span>
+      <span class="info-show"><strong>Booked for</strong>: <%=pluralize(@user.events.count, 'event') %>.</span>
+      <span style="width:550px">
         <strong>Hobbies</strong>:
           <% @user.hobby_list.each do |hobby| %>
-            <span class="tag-show-event"><%= hobby %></span>
+            <span class="tag-show-event" ><%= hobby %></span>
           <% end %>
       </span>
-      <span class="mt-2"><strong>Bio</strong>: <%= @user.bio %></span>
+      <span class="info-show mt-2"><strong>Bio</strong>: <%= @user.bio %></span>
   </div>
 
 <!-- PHOTO -->
