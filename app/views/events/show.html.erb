@@ -32,10 +32,10 @@
       <p><strong>Location</strong> <i class="fas fa-globe-europe"></i>: <%= @event.location %></p>
       <p><strong>Participants</strong> <i class="fas fa-users"></i>: <%= @booking_count %> / <%= @event.max_booking %> (booked / max.)</p>
       <div class="booked-user-container">
-        <% @event.bookings.where(status: "Booked").each do |booked_user| %>
-          <% if booked_user.user.photo.attached? %>
-            <%= link_to user_path(booked_user) do %>
-              <%= image_tag booked_user.user.photo, class: "avatar-event", alt: "avatar-bordered" %>
+        <% @event.bookings.where(status: "Booked").each do |booking| %>
+          <% if booking.user.photo.attached? %>
+            <%= link_to user_path(booking.user) do %>
+              <%= image_tag booking.user.photo, class: "avatar-event", alt: "avatar-bordered" %>
             <% end %>
           <% end %>
         <% end %>
