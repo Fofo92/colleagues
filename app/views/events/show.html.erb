@@ -65,12 +65,12 @@
   <div class="chatroom-container">
     <% if @booking %>
       <h2 id="title" style="margin:-10px 0 20px;">Chat room</h2>
-      <div id="messages" class="col-lg-12" data-event-id="<%= @event.id %>">
+      <div id="messages" class="col-lg-12" data-event-id="<%= @event.id %>" data-user-id="<%= current_user.id %>">
         <% @event.messages.each do |message| %>
           <%= render 'messages/message', message: message %>
         <% end %>
       </div>
-      <%= simple_form_for [ @event, @message ] do |f| %>
+      <%= simple_form_for [ @event, @message ], remote: true do |f| %>
         <%= f.input :content, label: false,
         placeholder: "Your message for #{@event.name}", id: 'send-msg' %>
         <%= f.button :submit, method: :post, class: 'btn btn-flat-primary', id: "btn-message" %>
