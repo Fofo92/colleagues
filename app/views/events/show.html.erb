@@ -71,7 +71,7 @@
       </div>
       <%= simple_form_for [ @event, @message ], remote: true do |f| %>
         <%= f.input :content, label: false,
-        placeholder: "Your message for #{@event.name}", id: 'send-msg' %>
+        placeholder: "Your message for ##{@event.name}", id: 'send-msg' %>
         <%= f.button :submit, method: :post, class: 'btn btn-flat-primary', id: "btn-message" %>
       <% end %>
     <% end %>
