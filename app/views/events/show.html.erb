@@ -32,11 +32,10 @@
       <p><strong>Location</strong> <i class="fas fa-globe-europe"></i>: <%= @event.location %></p>
       <p><strong>Participants</strong> <i class="fas fa-users"></i>: <%= @booking_count %> / <%= @event.max_booking %> (booked / max.)</p>
       <div class="booked-user-container">
-        <% @event.bookings.where(status: "Booked").each do |booked_user| %>
-          <% if booked_user.user.photo.attached? %>
-          <!-- changer le path pour amener vers la show du user -->
-            <%= link_to user_path(booked_user) do %>
-              <%= image_tag booked_user.user.photo, class: "avatar-event", alt: "avatar-bordered" %>
+        <% @event.bookings.where(status: "Booked").each do |booking| %>
+          <% if booking.user.photo.attached? %>
+            <%= link_to user_path(booking.user) do %>
+              <%= image_tag booking.user.photo, class: "avatar-event", alt: "avatar-bordered" %>
             <% end %>
           <% end %>
         <% end %>
@@ -65,12 +64,12 @@
   <div class="chatroom-container">
     <% if @booking %>
       <h2 id="title" style="margin:-10px 0 20px;">Chat room</h2>
-      <div id="messages" class="col-lg-12" data-event-id="<%= @event.id %>">
+      <div id="messages" class="col-lg-12" data-event-id="<%= @event.id %>" data-user-id="<%= current_user.id %>">
         <% @event.messages.each do |message| %>
           <%= render 'messages/message', message: message %>
         <% end %>
       </div>
-      <%= simple_form_for [ @event, @message ] do |f| %>
+      <%= simple_form_for [ @event, @message ], remote: true do |f| %>
         <%= f.input :content, label: false,
         placeholder: "Your message for #{@event.name}", id: 'send-msg' %>
         <%= f.button :submit, method: :post, class: 'btn btn-flat-primary', id: "btn-message" %>
