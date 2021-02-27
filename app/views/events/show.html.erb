@@ -34,7 +34,6 @@
       <div class="booked-user-container">
         <% @event.bookings.where(status: "Booked").each do |booked_user| %>
           <% if booked_user.user.photo.attached? %>
-          <!-- changer le path pour amener vers la show du user -->
             <%= link_to user_path(booked_user) do %>
               <%= image_tag booked_user.user.photo, class: "avatar-event", alt: "avatar-bordered" %>
             <% end %>
