@@ -18,7 +18,7 @@
       <span class="info-show"><strong>Arrival Date</strong>: <%= @user.joined_at %></span>
       <span class="info-show"><strong>Next organized event in</strong>: <%= @user.days_before_next_event.blank? ? 'No event organized' : pluralize(@user.days_before_next_event, 'day') %>.</span>
       <span class="info-show"><strong>Booked for</strong>: <%=pluralize(@user.events.count, 'event') %>.</span>
-      <span style="width:550px">
+      <span class="info-show">
         <strong>Hobbies</strong>:
           <% @user.hobby_list.each do |hobby| %>
             <span class="tag-show-event" ><%= hobby %></span>
