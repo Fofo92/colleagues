@@ -40,5 +40,4 @@ yarn-debug.log*
 *.swp
 .DS_Store
 public/assets
-app/assets/images
 .env*
